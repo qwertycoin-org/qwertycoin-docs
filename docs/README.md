@@ -18,8 +18,13 @@ Changes, edits, and other contributions to the Qwertycoin documentation can be s
 Please be granular and make a single commit per change/set of related changes (or file an Issue for each change if not directly submitting PR's). This will make reviewing changes easier and increase the speed and efficiency of getting your changes merged in.
 
 ## Thanks and Contributors
+Huge thank you to everyone here, they've made major commits to the wiki and helped make it what it is today!
 
-- [@blockinator](https://github.com/blockinator/)
-- the Qwertycoin community.
-
+* @blockinator
+* @ghostx1x
+* @Xecute0101
 ...more to be listed soon!
+
+And, of course-
+
+* the Qwertycoin Community
