@@ -1,0 +1,315 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Forking Qwertycoin · Qwertycoin Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This is a guide on how to make your own Qwertycoin fork."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Forking Qwertycoin · Qwertycoin Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://docs.qwertycoin.org/"/><meta property="og:description" content="This is a guide on how to make your own Qwertycoin fork."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/fav.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Qwertycoin Docs"/><h2 class="headerTitleWithLogo">Qwertycoin Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/Getting-Started" target="_self">Getting Started</a></li><li class=""><a href="/about/About-Qwertycoin" target="_self">About</a></li><li class=""><a href="/Frequently-Asked-Questions" target="_self">FAQ</a></li><li class=""><a href="/guides/mining/Mining" target="_self">Guides</a></li><li class="siteNavGroupActive"><a href="/developer/Compiling-From-Source" target="_self">For Developers</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>For Developers</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">For Developers<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/developer/Resources">Resources</a></li><li class="navListItem"><a class="navItem" href="/developer/Local-Testnet">Local Testnet</a></li><li class="navListItem"><a class="navItem" href="/developer/Compiling-From-Source">Compiling from Source</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/developer/Forking-Qwertycoin">Forking Qwertycoin</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">API Documentation</h4><ul><li class="navListItem"><a class="navItem" href="/developer/api/Daemon-JSON-RPC-API">Daemon JSON RPC API</a></li><li class="navListItem"><a class="navItem" href="/developer/api/Daemon-HTTP-RPC-API">Daemon HTTP RPC Commands</a></li><li class="navListItem"><a class="navItem" href="/developer/api/Using-RPC-Wallet">Using RPC Wallet</a></li><li class="navListItem"><a class="navItem" href="/developer/api/Wallet-RPC-API">Wallet RPC API</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Fixes<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/developer/fixes/Install-Cmake-3.10">Install Cmake 3.10</a></li><li class="navListItem"><a class="navItem" href="/developer/fixes/MacOS-QT-Install">MacOS QT Install</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/qwertycoin-org/qwertycoin-docs/edit/master/docs/developer/Forking-Qwertycoin.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Forking Qwertycoin</h1></header><article><div><span><p>This is a guide on how to make your own Qwertycoin fork.</p>
+<h3><a class="anchor" aria-hidden="true" id="creators-license"></a><a href="#creators-license" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creator's license</h3>
+<p>Before we begin, you will see a license at the beginning of every file. It is important not to remove or alter that license statement other than how we have it detailed here.</p>
+<pre><code class="hljs">// Copyright (c) 2012-2017, The CryptoNote developers, The Bytecoin developers
+// Copyright (c) 2016-2018, The Karbowanec developers
+// Copyright (c) 2018-2019, The Qwertycoin Developers
+// Copyright (c) 2019, Your Name Goes Here
+//
+// Please see the included LICENSE file for more information.
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="steps"></a><a href="#steps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Steps</h1>
+<h2><a class="anchor" aria-hidden="true" id="change-the-binary-names"></a><a href="#change-the-binary-names" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change the binary names</h2>
+<h3><a class="anchor" aria-hidden="true" id="src-cmakeliststxt"></a><a href="#src-cmakeliststxt" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>src/CMakeLists.txt</code></h3>
+<pre><code class="hljs">// Daemon name (coin name + d at the end)
+set_target_properties(QwertycoinTools_Daemon PROPERTIES OUTPUT_NAME "qwertycoind")
+
+// Miner name
+set_target_properties(QwertycoinTools_Miner PROPERTIES OUTPUT_NAME "miner")
+
+// Service wallet name
+set_target_properties(QwertycoinTools_PaymentGateService PROPERTIES OUTPUT_NAME "walletd")
+
+// Wallet name
+set_target_properties(QwertycoinTools_SimpleWallet PROPERTIES OUTPUT_NAME "simplewallet")
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-ascii-art"></a><a href="#change-ascii-art" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change ASCII Art</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-constantsh"></a><a href="#lib-global-constantsh" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/Global/Constants.h</code></h3>
+<p>This ASCII art will display on the binary programs. You can use <a href="https://patorjk.com/software/taag/#p=display&amp;f=Graffiti&amp;t=Type%20Something%20">this generator</a> to create your ASCII art. Depending on the ASCII art you choose to use, you may need to provide a different version for Windows.</p>
+<pre><code class="hljs">const std::string windowsAsciiArt =
+    "\n                                                              \n"
+    "                         _                   _                  \n"
+    "                        | |                 (_)                 \n"
+    "  __ ___      _____ _ __| |_ _   _  ___ ___  _ _ __             \n"
+    " / _` \\ \\ /\\ / / _ \\ '__| __| | | |/ __/ _ \\| | '_\\       \n"
+    "| (_| |\\ V  V /  __/ |  | |_| |_| | (_| (_) | | | | |          \n"
+    " \\__, | \\_/\\_/ \\___|_|   \\__|\\__, |\\___\\___/|_|_| |_|   \n"
+    "    | |                       __/ |                             \n"
+    "    |_|                      |___/                              \n"
+    "                                                                \n";
+
+const std::string nonWindowsAsciiArt =
+    "\n                                                                                 \n"
+    " ██████╗ ██╗    ██╗███████╗██████╗ ████████╗██╗   ██╗ ██████╗ ██████╗ ██╗███╗   ██╗\n"
+    "██╔═══██╗██║    ██║██╔════╝██╔══██╗╚══██╔══╝╚██╗ ██╔╝██╔════╝██╔═══██╗██║████╗  ██║\n"
+    "██║   ██║██║ █╗ ██║█████╗  ██████╔╝   ██║    ╚████╔╝ ██║     ██║   ██║██║██╔██╗ ██║\n"
+    "██║▄▄ ██║██║███╗██║██╔══╝  ██╔══██╗   ██║     ╚██╔╝  ██║     ██║   ██║██║██║╚██╗██║\n"
+    "╚██████╔╝╚███╔███╔╝███████╗██║  ██║   ██║      ██║   ╚██████╗╚██████╔╝██║██║ ╚████║\n"
+    " ╚══▀▀═╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝   ╚═╝      ╚═╝    ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝\n"
+"                                                                                   \n";
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-block-time"></a><a href="#change-block-time" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change block time</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh"></a><a href="#lib-global-cryptonoteconfigh" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<p>Block time is measured in seconds. Qwertycoin has 2 minute blocks.</p>
+<pre><code class="hljs">const uint64_t DIFFICULTY_TARGET                              = 120; // seconds
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-wallet-address-prefix"></a><a href="#change-wallet-address-prefix" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change wallet address prefix</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh-1"></a><a href="#lib-global-cryptonoteconfigh-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<p>Qwertycoin has an address prefix of QWC. Every wallet that is generated will begin with the same prefix. You can use the generator on <a href="https://cryptonotestarter.org/tools.html">this page</a> to generate your prefix in hexadecimal.</p>
+<pre><code class="hljs">const uint64_t CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX        = 0x14820c;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-mined-coins-unlocked-timeframe"></a><a href="#change-mined-coins-unlocked-timeframe" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change mined coins unlocked timeframe</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh-2"></a><a href="#lib-global-cryptonoteconfigh-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<p>Mined coins should wait about 20 minutes before being awarded to the miners. You can adjust this to suit your coin's parameters.</p>
+<pre><code class="hljs">const size_t   CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW           = 60;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-money-supply"></a><a href="#change-money-supply" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change money supply</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh-3"></a><a href="#lib-global-cryptonoteconfigh-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<p>The coin supply is measured in Atomic Units. The amount of decimal places that you have determines how many coins this number truly represents.</p>
+<ul>
+<li><code>(uint64_t)(-1)</code> = 18446744073709551616 coins</li>
+<li>You can define number explicitly like so: <code>UINT64_C(18446744073709551616)</code></li>
+</ul>
+<pre><code class="hljs">const uint64_t MONEY_SUPPLY                                   = (uint64_t)(-1);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-emission-speed"></a><a href="#change-emission-speed" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change emission speed</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh-4"></a><a href="#lib-global-cryptonoteconfigh-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<p>The emission speed governs how much of the coin's total available supply is awarded to miners with each block. You can play around with the emission speed using <a href="https://cryptonotestarter.org/tools.html">this tool</a>.</p>
+<pre><code class="hljs">const unsigned EMISSION_SPEED_FACTOR                          = 19;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-decimal-points"></a><a href="#change-decimal-points" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change decimal points</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh-5"></a><a href="#lib-global-cryptonoteconfigh-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<p>Change this number to suit your needs.</p>
+<pre><code class="hljs">const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT               = 8;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-min-and-max-transaction-fees"></a><a href="#change-min-and-max-transaction-fees" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change min and max transaction fees</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh-6"></a><a href="#lib-global-cryptonoteconfigh-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<p>Set the fees in Atomic Units for each transaction. Make sure this number isn't too low or you might run into spam transaction attacks.</p>
+<pre><code class="hljs">const uint64_t MINIMUM_FEE                                    = UINT64_C(100000000);
+const uint64_t MAXIMUM_FEE                                    = UINT64_C(100000000);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-remote-node-fee"></a><a href="#change-remote-node-fee" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change remote node fee</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh-7"></a><a href="#lib-global-cryptonoteconfigh-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<p>This section defines the fees that the remote node will receive from the sender.</p>
+<pre><code class="hljs">const double   REMOTE_NODE_FEE_FACTOR                         = 0.25; // percent
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="set-dust-limit"></a><a href="#set-dust-limit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set dust limit</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh-8"></a><a href="#lib-global-cryptonoteconfigh-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<p>Dust is the word for the smallest pieces of a coin that are too small to be included with in a block. Any amount lower than this will not be spendable. This number is measured in Atomic Units.</p>
+<pre><code class="hljs">const uint64_t DEFAULT_DUST_THRESHOLD                         = UINT64_C(100000);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="set-mixin-level"></a><a href="#set-mixin-level" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set mixin level</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh-9"></a><a href="#lib-global-cryptonoteconfigh-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<p>Mixin determines how private transactions are. A high mixin on a new network can cause transactions to fail so it is suggested to allow zero mixin and to start off with reasonable limits and increase later.</p>
+<pre><code class="hljs">const uint64_t MIN_TX_MIXIN_SIZE                              = 0;
+const uint64_t MAX_TX_MIXIN_SIZE                              = 20;
+
+const uint64_t MIN_TX_MIXIN_SIZE_V1                           = 2;
+const uint64_t MAX_TX_MIXIN_SIZE_V1                           = 20;
+
+const uint64_t MIN_TX_MIXIN_SIZE_V2                           = 2;
+const uint64_t MAX_TX_MIXIN_SIZE_V2                           = 20;
+
+const uint64_t MIN_TX_MIXIN_SIZE_V3                           = 3;
+const uint64_t MAX_TX_MIXIN_SIZE_V3                           = 3;
+
+/* The heights to activate the mixin limits at */
+const uint32_t MIXIN_LIMITS_V1_HEIGHT                         = 200000;
+const uint32_t MIXIN_LIMITS_V2_HEIGHT                         = 1000000;
+const uint32_t MIXIN_LIMITS_V3_HEIGHT                         = 1200000;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-hashing-algorithm"></a><a href="#change-hashing-algorithm" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change hashing algorithm</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh-10"></a><a href="#lib-global-cryptonoteconfigh-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<p>If you want to be an ASIC mined coin, make this number very high (~300000-350000). If you don't want to be ASIC mined, set this number to 3. You can also change V5 and V6 for your coin.</p>
+<pre><code class="hljs">const uint32_t UPGRADE_HEIGHT_V4                              = 110520;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-coin-name"></a><a href="#change-coin-name" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change coin name</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh-11"></a><a href="#lib-global-cryptonoteconfigh-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<pre><code class="hljs">const char     CRYPTONOTE_NAME[]                             = "Qwertycoin";
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-p2p-and-rpc-ports"></a><a href="#change-p2p-and-rpc-ports" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change P2P and RPC ports</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh-12"></a><a href="#lib-global-cryptonoteconfigh-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<p>Set these to personal preference.</p>
+<pre><code class="hljs">const int      P2P_DEFAULT_PORT                              =  8196;
+const int      RPC_DEFAULT_PORT                              =  8197;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="software-update-url"></a><a href="#software-update-url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Software Update URL</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh-13"></a><a href="#lib-global-cryptonoteconfigh-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<p>Set this according to your preferences.</p>
+<pre><code class="hljs">const char        LATEST_VERSION_URL[]                       = "https://releases.qwertycoin.org";
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-seed-nodes"></a><a href="#change-seed-nodes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change seed nodes</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-cryptonoteconfigh-14"></a><a href="#lib-global-cryptonoteconfigh-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/CryptoNoteConfig.h</code></h3>
+<p>Seed nodes are full daemons that serve up a copy of the blockchain data for peers just joining the network. Minimum amount is one but several are recommended.</p>
+<pre><code class="hljs">const char *const SEED_NODES[] = {
+    "node-00.qwertycoin.org:8196",
+    "node-01.qwertycoin.org:8196",
+    "node-02.qwertycoin.org:8196",
+    "node-03.qwertycoin.org:8196",
+    "node-04.qwertycoin.org:8196",
+    "node-05.qwertycoin.org:8196",
+    "198.147.30.115:8196",  //loop
+    "198.147.30.116:8196"   //pool
+};
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="remove-checkpoints"></a><a href="#remove-checkpoints" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Remove checkpoints</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-checkpointsh"></a><a href="#lib-global-checkpointsh" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/global/Checkpoints.h</code></h3>
+<p>Remove checkpoints.</p>
+<pre><code class="hljs">const std::initializer_list&lt;CheckpointData&gt; CHECKPOINTS = {};
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="change-cli-wallet-config"></a><a href="#change-cli-wallet-config" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change CLI wallet config</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-constantsh-1"></a><a href="#lib-global-constantsh-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/Global/Constants.h</code></h3>
+<p>Change to your personal preference.</p>
+<pre><code class="hljs">namespace WalletConfig {
+
+/*!
+    The prefix your coins address starts with
+*/
+const uint64_t addressPrefix = 0x14820c;
+
+/*!
+    Your coins 'Ticker', e.g. Monero = XMR, Bitcoin = BTC
+*/
+const std::string ticker = "QWC";
+
+/*!
+    The filename to output the CSV to in save_csv
+*/
+const std::string csvFilename = "transactions.csv";
+
+/*!
+    The filename to read+write the address book to - consider starting with
+    a leading '.' to make it hidden under mac+linux
+*/
+const std::string addressBookFilename = ".addressBook.json";
+
+/*!
+    The name of your deamon
+*/
+const std::string daemonName = "qwertycoind";
+
+/*!
+    The name to call this wallet
+*/
+const std::string walletName = "simplewallet";
+
+/*!
+    The name of service/walletd, the programmatic rpc interface to a wallet
+*/
+const std::string walletdName = "qwertycoin-service";
+
+/*!
+    The full name of your crypto
+*/
+const std::string coinName = std::string(CryptoNote::CRYPTONOTE_NAME);
+
+/*!
+    Where can your users contact you for support? E.g. discord
+*/
+const std::string contactLink = "https://chat.qwertycoin.org";
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="set-address-length"></a><a href="#set-address-length" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set address length</h2>
+<h3><a class="anchor" aria-hidden="true" id="lib-global-constantsh-2"></a><a href="#lib-global-constantsh-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lib/Global/Constants.h</code></h3>
+<p>Your address length should be 95 + the number of letters in your address prefix.</p>
+<pre><code class="hljs">const uint16_t standardAddressLength = 98;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="how-to-compile-and-deploy-your-coin-on-linux"></a><a href="#how-to-compile-and-deploy-your-coin-on-linux" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to compile and deploy your coin on Linux</h2>
+<ul>
+<li><a href="https://github.com/qwertycoin-org/qwertycoin#apple-macos-">Instructions for Mac</a></li>
+<li><a href="https://github.com/qwertycoin-org/qwertycoin#windows-10-">Instructions for Windows</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="prerequisites"></a><a href="#prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prerequisites</h3>
+<ul>
+<li><a href="https://github.com/qwertycoin-org/qwertycoin/wiki/E01.-Install-Cmake-3.10">CMake 3.10 or higher</a>, build-essential, git</li>
+</ul>
+<p>Example for Ubuntu</p>
+<pre><code class="hljs">sudo apt-get install build-essential cmake git
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="building"></a><a href="#building" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building</h3>
+<ul>
+<li>After installing dependencies run simple script:</li>
+</ul>
+<pre><code class="hljs">git clone --recurse-submodules https://github.com/qwertycoin-org/qwertycoin
+cd ./qwertycoin
+mkdir ./build
+cd ./build
+cmake -DBUILD_ALL:BOOL=TRUE ..
+cmake --build . --config Release
+</code></pre>
+<ul>
+<li>If all went well, it will complete successfully, and you will find all your binaries in the <code>./build/src</code> directory.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="deploy"></a><a href="#deploy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deploy</h3>
+<p>On the seed nodes that you listed in <code>src/config/CryptoNoteConfig.h</code>, launch your newly compiled daemons. It is suggested that you run the daemons inside of tmux to keep them running. Here's how to start the daemons inside a basic loop to relaunch the daemon if it fails.</p>
+<pre><code class="hljs">tmux
+
+while true ; do ./qwertycoind ; done
+</code></pre>
+<ul>
+<li>Type <code>control b + d</code> to exit tmux</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="advanced-parameters"></a><a href="#advanced-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Advanced parameters</h2>
+<p><a href="">Coming soon...</a>.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/developer/Compiling-From-Source"><span class="arrow-prev">← </span><span>Compiling from Source</span></a><a class="docs-next button" href="/developer/api/Daemon-JSON-RPC-API"><span>Daemon JSON RPC API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#change-the-binary-names">Change the binary names</a><ul class="toc-headings"><li><a href="#src-cmakeliststxt"><code>src/CMakeLists.txt</code></a></li></ul></li><li><a href="#change-ascii-art">Change ASCII Art</a><ul class="toc-headings"><li><a href="#lib-global-constantsh"><code>lib/Global/Constants.h</code></a></li></ul></li><li><a href="#change-block-time">Change block time</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#change-wallet-address-prefix">Change wallet address prefix</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh-1"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#change-mined-coins-unlocked-timeframe">Change mined coins unlocked timeframe</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh-2"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#change-money-supply">Change money supply</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh-3"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#change-emission-speed">Change emission speed</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh-4"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#change-decimal-points">Change decimal points</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh-5"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#change-min-and-max-transaction-fees">Change min and max transaction fees</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh-6"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#change-remote-node-fee">Change remote node fee</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh-7"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#set-dust-limit">Set dust limit</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh-8"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#set-mixin-level">Set mixin level</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh-9"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#change-hashing-algorithm">Change hashing algorithm</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh-10"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#change-coin-name">Change coin name</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh-11"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#change-p2p-and-rpc-ports">Change P2P and RPC ports</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh-12"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#software-update-url">Software Update URL</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh-13"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#change-seed-nodes">Change seed nodes</a><ul class="toc-headings"><li><a href="#lib-global-cryptonoteconfigh-14"><code>lib/global/CryptoNoteConfig.h</code></a></li></ul></li><li><a href="#remove-checkpoints">Remove checkpoints</a><ul class="toc-headings"><li><a href="#lib-global-checkpointsh"><code>lib/global/Checkpoints.h</code></a></li></ul></li><li><a href="#change-cli-wallet-config">Change CLI wallet config</a><ul class="toc-headings"><li><a href="#lib-global-constantsh-1"><code>lib/Global/Constants.h</code></a></li></ul></li><li><a href="#set-address-length">Set address length</a><ul class="toc-headings"><li><a href="#lib-global-constantsh-2"><code>lib/Global/Constants.h</code></a></li></ul></li><li><a href="#how-to-compile-and-deploy-your-coin-on-linux">How to compile and deploy your coin on Linux</a><ul class="toc-headings"><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#building">Building</a></li><li><a href="#deploy">Deploy</a></li></ul></li><li><a href="#advanced-parameters">Advanced parameters</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/fav.png" alt="Qwertycoin Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Getting-Started">Getting Started</a><a href="/guides/mining/Mining.html">Guides</a><a href="/developer/Compiling-From-Source.html">Developer Resources</a></div><div><h5>Community</h5><a href="https://discordapp.com/invite/kMykjNQ">Discord Chat</a><a href="https://www.reddit.com/r/QWERTYCOIN/">Reddit</a><a href="https://twitter.com/Qwertycoin_QWC" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://qwertycoin.org/blog">Blog</a><a href="https://github.com/qwertycoin-org">GitHub</a><a class="github-button" href="https://github.com/qwertycoin/qwertycoin-docs" data-icon="octicon-star" data-count-href="https://github.com/qwertycoin-org/qwertycoin-docs/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><div><section class="copyright">Copyright © 2019 Qwertycoin</section><section class="copyright">Docs released under the <a href="https://opensource.org/licenses/MIT">MIT License</a></section><section class="copyright">Qwertycoin released under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public V3 License</a></section></div></footer></div></body></html>

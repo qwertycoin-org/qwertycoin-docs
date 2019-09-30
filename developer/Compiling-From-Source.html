@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Compiling from Source · Qwertycoin Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="#### Linux"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Compiling from Source · Qwertycoin Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://docs.qwertycoin.org/"/><meta property="og:description" content="#### Linux"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/fav.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Qwertycoin Docs"/><h2 class="headerTitleWithLogo">Qwertycoin Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/Getting-Started" target="_self">Getting Started</a></li><li class=""><a href="/about/About-Qwertycoin" target="_self">About</a></li><li class=""><a href="/Frequently-Asked-Questions" target="_self">FAQ</a></li><li class=""><a href="/guides/mining/Mining" target="_self">Guides</a></li><li class="siteNavGroupActive siteNavItemActive"><a href="/developer/Compiling-From-Source" target="_self">For Developers</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>For Developers</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">For Developers<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/developer/Resources">Resources</a></li><li class="navListItem"><a class="navItem" href="/developer/Local-Testnet">Local Testnet</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/developer/Compiling-From-Source">Compiling from Source</a></li><li class="navListItem"><a class="navItem" href="/developer/Forking-Qwertycoin">Forking Qwertycoin</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">API Documentation</h4><ul><li class="navListItem"><a class="navItem" href="/developer/api/Daemon-JSON-RPC-API">Daemon JSON RPC API</a></li><li class="navListItem"><a class="navItem" href="/developer/api/Daemon-HTTP-RPC-API">Daemon HTTP RPC Commands</a></li><li class="navListItem"><a class="navItem" href="/developer/api/Using-RPC-Wallet">Using RPC Wallet</a></li><li class="navListItem"><a class="navItem" href="/developer/api/Wallet-RPC-API">Wallet RPC API</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Fixes<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/developer/fixes/Install-Cmake-3.10">Install Cmake 3.10</a></li><li class="navListItem"><a class="navItem" href="/developer/fixes/MacOS-QT-Install">MacOS QT Install</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/qwertycoin-org/qwertycoin-docs/edit/master/docs/developer/Compiling-From-Source.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Compiling from Source</h1></header><article><div><span><h4><a class="anchor" aria-hidden="true" id="linux"></a><a href="#linux" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Linux</h4>
+<h5><a class="anchor" aria-hidden="true" id="prerequisites"></a><a href="#prerequisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prerequisites</h5>
+<ul>
+<li>You will need the following packages: build-essential, <a href="/developer/fixes/Install-Cmake-3.10">cmake (3.10 or higher)</a> and git;</li>
+<li>Most of these should already be installed on your system. For example on Ubuntu by running:</li>
+</ul>
+<pre><code class="hljs">sudo apt-get install build-essential cmake git
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="building"></a><a href="#building" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building</h5>
+<ul>
+<li>After installing dependencies run simple script:</li>
+</ul>
+<pre><code class="hljs">git clone --recurse-submodules https://github.com/qwertycoin-org/qwertycoin
+cd ./qwertycoin
+mkdir ./build
+cd ./build
+cmake -DBUILD_ALL:BOOL=TRUE ..
+cmake --build . --config Release
+</code></pre>
+<ul>
+<li>If all went well, it will complete successfully, and you will find all your binaries in the <code>./build/src</code> directory.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="windows-10"></a><a href="#windows-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Windows 10</h4>
+<h5><a class="anchor" aria-hidden="true" id="prerequisites-1"></a><a href="#prerequisites-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prerequisites</h5>
+<ul>
+<li>Install <a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&amp;rel=15&amp;page=inlineinstall">Visual Studio 2017 Community Edition</a>;</li>
+<li>When installing Visual Studio, it is <strong>required</strong> that you install <strong>Desktop development with C++</strong> and the <strong>VC++ v140 toolchain</strong> when selecting features. The option to install the v140 toolchain can be found by expanding the &quot;Desktop development with C++&quot; node on the right. You will need this for the project to build correctly;</li>
+<li>Make sure that bundled cmake version is 3.10 or higher.</li>
+</ul>
+<h5><a class="anchor" aria-hidden="true" id="building-1"></a><a href="#building-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building</h5>
+<ul>
+<li>From the start menu, open &quot;x64 Native Tools Command Prompt for vs2017&quot;;</li>
+<li>And the run the following commands:</li>
+</ul>
+<pre><code class="hljs">git clone https://github.com/qwertycoin-org/qwertycoin
+cd qwertycoin
+md build
+cd build
+cmake -G "Visual Studio 15 2017 Win64" -DBUILD_ALL:BOOL=TRUE ..
+cmake --build . --config Release
+</code></pre>
+<ul>
+<li>If all went well, it will complete successfully, and you will find all your binaries in the <code>.\build\src\Release</code> directory;</li>
+<li>Additionally, a <code>.sln</code> file will have been created in the <code>build</code> directory. If you wish to open the project in Visual Studio with this, you can.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="apple-macos"></a><a href="#apple-macos" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Apple macOS</h4>
+<h5><a class="anchor" aria-hidden="true" id="prerequisites-2"></a><a href="#prerequisites-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prerequisites</h5>
+<ul>
+<li>Install Xcode and Developer Tools;</li>
+<li>Install <a href="https://cmake.org/">cmake</a>. See <a href="https://stackoverflow.com/questions/23849962/cmake-installer-for-mac-fails-to-create-usr-bin-symlinks">here</a> if you are unable to call <code>cmake</code> from the terminal after installing;</li>
+<li>Install git.</li>
+</ul>
+<h5><a class="anchor" aria-hidden="true" id="building-2"></a><a href="#building-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building</h5>
+<ul>
+<li>After installing dependencies run simple script:</li>
+</ul>
+<pre><code class="hljs">git clone https://github.com/qwertycoin-org/qwertycoin
+cd ./qwertycoin
+mkdir ./build
+cd ./build
+cmake -DBUILD_ALL:BOOL=TRUE ..
+cmake --build . --config Release
+</code></pre>
+<ul>
+<li>If all went well, it will complete successfully, and you will find all your binaries in the <code>./build/src</code> directory.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="android"></a><a href="#android" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Android</h4>
+<h5><a class="anchor" aria-hidden="true" id="prerequisites-3"></a><a href="#prerequisites-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prerequisites</h5>
+<ul>
+<li>You will need the following packages: build-essential, cmake (3.10 or higher), git, unzip and wget;</li>
+<li>Most of these should already be installed on your system. For example on Ubuntu by running:</li>
+</ul>
+<pre><code class="hljs">sudo apt-get install build-essential cmake git unzip wget
+</code></pre>
+<ul>
+<li>Download and extract Android NDK:</li>
+</ul>
+<pre><code class="hljs">mkdir -p "$HOME/.android"
+wget -O "$HOME/.android/android-ndk-r18b-linux-x86_64.zip" "https://dl.google.com/android/repository/android-ndk-r18b-linux-x86_64.zip"
+unzip -qq "$HOME/.android/android-ndk-r18b-linux-x86_64.zip" -d "$HOME/.android"
+export ANDROID_NDK_r18b="$HOME/.android/android-ndk-r18b"
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="building-3"></a><a href="#building-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building</h5>
+<ul>
+<li>After installing dependencies run simple script:</li>
+</ul>
+<pre><code class="hljs">git clone https://github.com/qwertycoin-org/qwertycoin
+cd ./qwertycoin
+mkdir ./build
+cd ./build
+cmake -DCMAKE_TOOLCHAIN_FILE=cmake/polly/android-ndk-r18b-api-21-x86-clang-libcxx.cmake -DBUILD_ALL:BOOL=TRUE -DBUILD_WITH_TESTS:BOOL=FALSE -DSTATIC=ON -DBUILD_64=OFF -DANDROID=true -DBUILD_TAG="android" ..
+cmake --build . --config Release
+</code></pre>
+<ul>
+<li>If all went well, it will complete successfully, and you will find all your binaries in the <code>./build/src</code> directory.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="freebsd"></a><a href="#freebsd" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>FreeBSD</h4>
+<h5><a class="anchor" aria-hidden="true" id="prerequisites-4"></a><a href="#prerequisites-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prerequisites</h5>
+<ul>
+<li>You will need the following packages: cmake (3.10 or higher) and git;</li>
+<li>Most of these should already be installed on your system. For example on FreeBSD by running:</li>
+</ul>
+<pre><code class="hljs">sudo pkg install cmake git
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="building-4"></a><a href="#building-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building</h5>
+<ul>
+<li>After installing dependencies run simple script:</li>
+</ul>
+<pre><code class="hljs">git clone --recurse-submodules https://github.com/qwertycoin-org/qwertycoin
+cd ./qwertycoin
+mkdir ./build
+cd ./build
+cmake -DBUILD_ALL:BOOL=TRUE ..
+cmake --build . --config Release
+</code></pre>
+<ul>
+<li>If all went well, it will complete successfully, and you will find all your binaries in the <code>./build/src</code> directory.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="thanks"></a><a href="#thanks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Thanks</h4>
+<p>Cryptonote Developers, Bytecoin Developers, Monero Developers, Karbo Developers, Qwertycoin Community</p>
+<h3><a class="anchor" aria-hidden="true" id="copypasta-for-license-when-editing-files"></a><a href="#copypasta-for-license-when-editing-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copypasta for license when editing files</h3>
+<p>Hi Qwertycoin contributor, thanks for forking and sending back Pull Requests. Extensive docs about contributing are in the works or elsewhere. For now this is the bit we need to get into all the files we touch. Please add it to the top of the files, see <a href="https://github.com/qwertycoin-org/qwertycoin/blob/master/src/config/CryptoNoteConfig.h">src/config/CryptoNoteConfig.h</a> for an example.</p>
+<pre><code class="hljs"># Copyright 2018-2019 (c) The Qwertycoin Group.
+# Licensed under the GNU General Public License, Version 3.
+# See the file LICENSE from this package for details.
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/developer/Local-Testnet"><span class="arrow-prev">← </span><span>Local Testnet</span></a><a class="docs-next button" href="/developer/Forking-Qwertycoin"><span>Forking Qwertycoin</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/fav.png" alt="Qwertycoin Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Getting-Started">Getting Started</a><a href="/guides/mining/Mining.html">Guides</a><a href="/developer/Compiling-From-Source.html">Developer Resources</a></div><div><h5>Community</h5><a href="https://discordapp.com/invite/kMykjNQ">Discord Chat</a><a href="https://www.reddit.com/r/QWERTYCOIN/">Reddit</a><a href="https://twitter.com/Qwertycoin_QWC" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://qwertycoin.org/blog">Blog</a><a href="https://github.com/qwertycoin-org">GitHub</a><a class="github-button" href="https://github.com/qwertycoin/qwertycoin-docs" data-icon="octicon-star" data-count-href="https://github.com/qwertycoin-org/qwertycoin-docs/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><div><section class="copyright">Copyright © 2019 Qwertycoin</section><section class="copyright">Docs released under the <a href="https://opensource.org/licenses/MIT">MIT License</a></section><section class="copyright">Qwertycoin released under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public V3 License</a></section></div></footer></div></body></html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Creating a Mining Pool · Qwertycoin Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Prepare Server"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Creating a Mining Pool · Qwertycoin Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://docs.qwertycoin.org/"/><meta property="og:description" content="## Prepare Server"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/fav.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Qwertycoin Docs"/><h2 class="headerTitleWithLogo">Qwertycoin Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/Getting-Started" target="_self">Getting Started</a></li><li class=""><a href="/about/About-Qwertycoin" target="_self">About</a></li><li class=""><a href="/Frequently-Asked-Questions" target="_self">FAQ</a></li><li class="siteNavGroupActive"><a href="/guides/mining/Mining" target="_self">Guides</a></li><li class=""><a href="/developer/Compiling-From-Source" target="_self">For Developers</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Mining</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Mining<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/mining/Mining">Mining</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Cloud-Mining">Cloud Mining</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Mobile-Mining">Mobile Mining</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Using-a-Mining-Pool">Using a Mining Pool</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Mining-With-SBC">Mining With SBC</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/XMR-Stak">XMR-Stak</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/XMR-Stak-Linux">XMR-Stak Linux</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/XMRIG">XMRIG</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/guides/mining/Creating-a-Mining-Pool">Creating a Mining Pool</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Wallets<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet">Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Generating-a-Wallet">Generating a Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Paper-Wallet">Paper Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Sign-and-Verify-Messages">Sign and Verify Messages</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Backup">Wallet Backup</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Update">Wallet Update</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Recovery">Wallet Recovery</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-CLI-Wallet">Using CLI Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-GUI-Wallet">Using GUI Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Zero-Wallet">Using Zero Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Web-Wallet">Using Web Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Mobile-Wallet">Using Mobile Wallet</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Config<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/config/Config">Config</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Daemon<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/daemon/Fix-Sync-Issues">Fix Sync Issues</a></li><li class="navListItem"><a class="navItem" href="/guides/daemon/Load-Checkpoints">Load Checkpoints</a></li><li class="navListItem"><a class="navItem" href="/guides/daemon/Start-Masternode">Start Masternode</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Trading<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/trading/Trading">Trading</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-BISQ">How to Trade on BISQ</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-Bitexlive">How to Trade on Bitexlive</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-CREX24">How to Trade on CREX24</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/qwertycoin-org/qwertycoin-docs/edit/master/docs/guides/mining/Creating-a-Mining-Pool.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Creating a Mining Pool</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="prepare-server"></a><a href="#prepare-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prepare Server</h2>
+<h3><a class="anchor" aria-hidden="true" id="create-aws-account"></a><a href="#create-aws-account" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create AWS Account</h3>
+<p>Create an account with <a href="https://portal.aws.amazon.com/billing/signup?nc2=h_ct&amp;src=default&amp;redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start">Amazon AWS</a>.</p>
+<p><img src="/assets/mining/creatingpool/pool-aws.png" alt="pool-aws"></p>
+<h3><a class="anchor" aria-hidden="true" id="setup-instance"></a><a href="#setup-instance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setup Instance</h3>
+<p>On the home page, click the services tab and then go to compute and click 'EC2'. Once you are there you will chose your region on the top of the page in the header section. Next click the 'Launch Instance' button at the center of the page and then select an AMI. For this tutorial I am using Ubuntu Server 16.04 LTS.</p>
+<p><img src="/assets/mining/creatingpool/pool-choose.png" alt="pool-choose"></p>
+<p>Next you will need to choose an instance type. I am just going to use the t2.large for the tutorial.</p>
+<p><img src="/assets/mining/creatingpool/pool-choosetype.png" alt="pool-choosetype"></p>
+<p>You can then skip to step six and under the source tap select my IP.</p>
+<p><img src="/assets/mining/creatingpool/pool-security.png" alt="pool-security"></p>
+<p>Next press Review and Launch and then create a new key pair to be able to connect with your instance. Once the instance is live, you can connect to your instance using an SSH through Terminal, PuTTY or similar program.</p>
+<p><img src="/assets/mining/creatingpool/pool-createkey.png" alt="pool-createkey"></p>
+<h3><a class="anchor" aria-hidden="true" id="ssh-into-instance"></a><a href="#ssh-into-instance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SSH into instance</h3>
+<ol>
+<li><p>Download key pair that you created earlier</p></li>
+<li><p>Make sure you are in the same directory as the key and allow permissions</p></li>
+</ol>
+<pre><code class="hljs">chmod 600 &lt;key-name&gt;.pem
+</code></pre>
+<ol start="3">
+<li>SSH into instance</li>
+</ol>
+<pre><code class="hljs">ssh -i &lt;key-name&gt;.pem ubuntu@&lt;EC2-IP-Address&gt;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="install-dependancies"></a><a href="#install-dependancies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install dependancies</h3>
+<pre><code class="hljs">sudo apt-get install aptitude
+</code></pre>
+<pre><code class="hljs">sudo aptitude update
+</code></pre>
+<pre><code class="hljs">sudo aptitude install –with-recommends build-essential autotools-dev autoconf automake libcurl3 libcurl4-gnutls-dev git make cmake libssl-dev pkg-config libevent-dev libunbound-dev libminiupnpc-dev doxygen supervisor jq libboost-all-dev htop
+</code></pre>
+<pre><code class="hljs">sudo apt-get install build-essential libtool autotools-dev autoconf pkg-config libssl-dev
+</code></pre>
+<pre><code class="hljs">sudo apt-get install libboost-all-dev git npm nodejs nodejs-legacy libminiupnpc-dev redis-server
+</code></pre>
+<pre><code class="hljs">add-apt-repository ppa:bitcoin/bitcoin
+</code></pre>
+<pre><code class="hljs">sudo apt-get update
+</code></pre>
+<pre><code class="hljs">apt-get install libdb4.8-dev libdb4.8++-dev
+</code></pre>
+<pre><code class="hljs">curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh
+</code></pre>
+<pre><code class="hljs">bash install_nvm.sh
+</code></pre>
+<ul>
+<li>After npm is installed you will have to log out and then back into your instance and continue installing dependancies.</li>
+</ul>
+<pre><code class="hljs">source ~/.profile
+</code></pre>
+<pre><code class="hljs">nvm install 0.10.48
+</code></pre>
+<pre><code class="hljs">nvm use 0.10.48
+</code></pre>
+<pre><code class="hljs">nvm alias default 0.10.48
+</code></pre>
+<pre><code class="hljs">nvm use default
+</code></pre>
+<ul>
+<li>Install Apache2 for hosting the front end.</li>
+</ul>
+<pre><code class="hljs">sudo apt-get update
+</code></pre>
+<pre><code class="hljs">sudo apt-get install apache2
+</code></pre>
+<ul>
+<li>Adjust firewall to allow Apache full.</li>
+</ul>
+<pre><code class="hljs">sudo ufw allow 'Apache Full'
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="install-qwertycoin"></a><a href="#install-qwertycoin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install Qwertycoin</h2>
+<pre><code class="hljs">git clone --recurse-submodules https://github.com/qwertycoin-org/qwertycoin
+</code></pre>
+<pre><code class="hljs">cd ./qwertycoin
+</code></pre>
+<pre><code class="hljs">mkdir ./build
+</code></pre>
+<pre><code class="hljs">cd ./build
+</code></pre>
+<pre><code class="hljs">cmake ..
+</code></pre>
+<pre><code class="hljs">cmake --build . --config Release
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="start-daemon-and-let-it-sync"></a><a href="#start-daemon-and-let-it-sync" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Start daemon and let it sync</h3>
+<pre><code class="hljs"> cd build/src
+</code></pre>
+<pre><code class="hljs">tmux
+</code></pre>
+<pre><code class="hljs">./qwertycoind
+</code></pre>
+<ul>
+<li><p>Let the blockchain sync before continuing</p></li>
+<li><p>To sync the blockchain faster follow <a href="guides/daemon/Load-Checkpoints">this guide</a></p></li>
+<li><p>control b + d to exit tmux</p></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="start-simple-wallet-and-follow-steps-to-generate-a-new-simplewallet"></a><a href="#start-simple-wallet-and-follow-steps-to-generate-a-new-simplewallet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Start simple wallet and follow steps to generate a new simplewallet</h3>
+<ul>
+<li>After you generated a new wallet exit it and run this:</li>
+</ul>
+<pre><code class="hljs">tmux
+</code></pre>
+<pre><code class="hljs">./simplewallet --wallet-file &lt;wallet_name&gt; --password &lt;wallet_password&gt; --rpc-bind-port 8198
+</code></pre>
+<ul>
+<li>control b + d to exit tmux</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="install-pool-software"></a><a href="#install-pool-software" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install pool software</h2>
+<h3><a class="anchor" aria-hidden="true" id="install-dependancies-1"></a><a href="#install-dependancies-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install dependancies</h3>
+<pre><code class="hljs">sudo apt-get install libssl-dev libboost-all-dev
+</code></pre>
+<pre><code class="hljs">curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash
+</code></pre>
+<pre><code class="hljs">sudo apt-get install -y nodejs
+</code></pre>
+<pre><code class="hljs">sudo add-apt-repository ppa:chris-lea/redis-server
+</code></pre>
+<pre><code class="hljs">sudo apt-get update
+</code></pre>
+<pre><code class="hljs">sudo apt-get install redis-server
+</code></pre>
+<ul>
+<li>Clone repository</li>
+</ul>
+<pre><code class="hljs">git clone https://github.com/dvandal/cryptonote-nodejs-pool.git pool
+</code></pre>
+<pre><code class="hljs">cd pool &amp;&amp; npm update
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="pool-configuration"></a><a href="#pool-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pool Configuration</h3>
+<ul>
+<li>Copy the <code>config_examples/qwertycoin.json</code> file to <code>config.json</code></li>
+</ul>
+<pre><code class="hljs">cp config_examples/qwertycoin.json config.json
+</code></pre>
+<p>Change the following variables:
+Line 2 -  Pool host to your pools IP Address
+Line 30 - Your simplewallet address that you generated
+Line 138 - Set your API password
+Line 125-127 - (Optional) change pool fees</p>
+<h3><a class="anchor" aria-hidden="true" id="copy-website_example-files-to-html-directory"></a><a href="#copy-website_example-files-to-html-directory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copy website_example files to html directory</h3>
+<pre><code class="hljs">sudo cp -rf js/ lang/ pages/ themes/ admin.html config.js index.html /var/www/html
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="configuring-website_example"></a><a href="#configuring-website_example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuring website_example</h3>
+<ul>
+<li>Edit <code>config.js</code> to use your pool's specific configuration</li>
+</ul>
+<p><img src="/assets/mining/creatingpool/pool-config.png" alt="pool-config"></p>
+<h3><a class="anchor" aria-hidden="true" id="start-the-mining-pool"></a><a href="#start-the-mining-pool" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Start the mining pool</h3>
+<pre><code class="hljs">cd &amp;&amp; cd pool
+</code></pre>
+<pre><code class="hljs">node init.js
+</code></pre>
+<ul>
+<li><p>Your pool should now be visible at your server's IP address</p></li>
+<li><p>You can visit your admin page by appending <code>admin.html</code> to your server IP address in your browsers search bar like so:</p></li>
+</ul>
+<p><code>https://server-ip-address/admin.html</code></p>
+<ul>
+<li>Your admin password is your API password you set earlier in <code>config.json</code></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/guides/mining/XMRIG"><span class="arrow-prev">← </span><span>XMRIG</span></a><a class="docs-next button" href="/guides/wallets/Wallet"><span>Wallet</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#prepare-server">Prepare Server</a><ul class="toc-headings"><li><a href="#create-aws-account">Create AWS Account</a></li><li><a href="#setup-instance">Setup Instance</a></li><li><a href="#ssh-into-instance">SSH into instance</a></li><li><a href="#install-dependancies">Install dependancies</a></li></ul></li><li><a href="#install-qwertycoin">Install Qwertycoin</a><ul class="toc-headings"><li><a href="#start-daemon-and-let-it-sync">Start daemon and let it sync</a></li><li><a href="#start-simple-wallet-and-follow-steps-to-generate-a-new-simplewallet">Start simple wallet and follow steps to generate a new simplewallet</a></li></ul></li><li><a href="#install-pool-software">Install pool software</a><ul class="toc-headings"><li><a href="#install-dependancies-1">Install dependancies</a></li><li><a href="#pool-configuration">Pool Configuration</a></li><li><a href="#copy-website_example-files-to-html-directory">Copy website_example files to html directory</a></li><li><a href="#configuring-website_example">Configuring website_example</a></li><li><a href="#start-the-mining-pool">Start the mining pool</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/fav.png" alt="Qwertycoin Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Getting-Started">Getting Started</a><a href="/guides/mining/Mining.html">Guides</a><a href="/developer/Compiling-From-Source.html">Developer Resources</a></div><div><h5>Community</h5><a href="https://discordapp.com/invite/kMykjNQ">Discord Chat</a><a href="https://www.reddit.com/r/QWERTYCOIN/">Reddit</a><a href="https://twitter.com/Qwertycoin_QWC" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://qwertycoin.org/blog">Blog</a><a href="https://github.com/qwertycoin-org">GitHub</a><a class="github-button" href="https://github.com/qwertycoin/qwertycoin-docs" data-icon="octicon-star" data-count-href="https://github.com/qwertycoin-org/qwertycoin-docs/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><div><section class="copyright">Copyright © 2019 Qwertycoin</section><section class="copyright">Docs released under the <a href="https://opensource.org/licenses/MIT">MIT License</a></section><section class="copyright">Qwertycoin released under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public V3 License</a></section></div></footer></div></body></html>

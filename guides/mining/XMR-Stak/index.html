@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>XMR-Stak · Qwertycoin Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="XMR-Stak is a unified miner, which means the same program will be used to mine with both your CPU and your GPU. It will automatically detect your hardware and adjust the settings accordingly."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="XMR-Stak · Qwertycoin Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://docs.qwertycoin.org/"/><meta property="og:description" content="XMR-Stak is a unified miner, which means the same program will be used to mine with both your CPU and your GPU. It will automatically detect your hardware and adjust the settings accordingly."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/fav.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Qwertycoin Docs"/><h2 class="headerTitleWithLogo">Qwertycoin Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/Getting-Started" target="_self">Getting Started</a></li><li class=""><a href="/about/About-Qwertycoin" target="_self">About</a></li><li class=""><a href="/Frequently-Asked-Questions" target="_self">FAQ</a></li><li class="siteNavGroupActive"><a href="/guides/mining/Mining" target="_self">Guides</a></li><li class=""><a href="/developer/Compiling-From-Source" target="_self">For Developers</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Mining</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Mining<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/mining/Mining">Mining</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Cloud-Mining">Cloud Mining</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Mobile-Mining">Mobile Mining</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Using-a-Mining-Pool">Using a Mining Pool</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Mining-With-SBC">Mining With SBC</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/guides/mining/XMR-Stak">XMR-Stak</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/XMR-Stak-Linux">XMR-Stak Linux</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/XMRIG">XMRIG</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Creating-a-Mining-Pool">Creating a Mining Pool</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Wallets<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet">Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Generating-a-Wallet">Generating a Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Paper-Wallet">Paper Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Sign-and-Verify-Messages">Sign and Verify Messages</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Backup">Wallet Backup</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Update">Wallet Update</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Recovery">Wallet Recovery</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-CLI-Wallet">Using CLI Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-GUI-Wallet">Using GUI Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Zero-Wallet">Using Zero Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Web-Wallet">Using Web Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Mobile-Wallet">Using Mobile Wallet</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Config<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/config/Config">Config</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Daemon<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/daemon/Fix-Sync-Issues">Fix Sync Issues</a></li><li class="navListItem"><a class="navItem" href="/guides/daemon/Load-Checkpoints">Load Checkpoints</a></li><li class="navListItem"><a class="navItem" href="/guides/daemon/Start-Masternode">Start Masternode</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Trading<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/trading/Trading">Trading</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-BISQ">How to Trade on BISQ</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-Bitexlive">How to Trade on Bitexlive</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-CREX24">How to Trade on CREX24</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/qwertycoin-org/qwertycoin-docs/edit/master/docs/guides/mining/XMR-Stak.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">XMR-Stak</h1></header><article><div><span><p>XMR-Stak is a unified miner, which means the same program will be used to mine with both your CPU and your GPU. It will automatically detect your hardware and adjust the settings accordingly.</p>
+<h2><a class="anchor" aria-hidden="true" id="downloading-and-installing-for-linux"></a><a href="#downloading-and-installing-for-linux" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Downloading and Installing for Linux</h2>
+<p>View <a href="XMR-Stak-Linux">this guide</a> to get started with XMR-Stak on Linux.</p>
+<h2><a class="anchor" aria-hidden="true" id="downloading-and-installing-for-windows"></a><a href="#downloading-and-installing-for-windows" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Downloading and Installing for Windows</h2>
+<ol>
+<li><p>Download and install <a href="https://github.com/fireice-uk/xmr-stak/releases/latest">XMR-Stak Unified Miner</a>. It will auto-detect your hardware, and tune everything for you.</p></li>
+<li><p>Make a folder called Qwertycoin Miner on your desktop and unzip the files you just downloaded for XMR-Stak in there.</p></li>
+<li><p>Double-click on xmr-stak.exe.</p></li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="to-start-xmr-stak-without-using-your-cpu-gpu-follow-these-steps"></a><a href="#to-start-xmr-stak-without-using-your-cpu-gpu-follow-these-steps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To start XMR-Stak without using your CPU/GPU, follow these steps:</h4>
+<ul>
+<li><p>Open Terminal</p></li>
+<li><p>Type <code>cd Desktop\Qwertycoin Miner</code></p></li>
+</ul>
+<p>To start XMR-Stak without utilising the CPU, type <code>xmr-stak.exe --noCPU</code></p>
+<p>To start XMR-Stak without utilizing your nVidia GPU, type <code>xmr-stak.exe --noNVIDIA</code></p>
+<p>To start XMR-Stak without utilizing your AMD GPU, type <code>xmr-stak.exe --noAMD</code></p>
+<p>To start XMR-Stak without utilizing either of your GPU's, type <code>xmr-stak.exe --noAMD --noNVIDIA</code></p>
+<h4><a class="anchor" aria-hidden="true" id="if-you-want-to-use-both-your-cpu-and-your-gpu-ignore-these-steps-just-launch-xmr-stakexe"></a><a href="#if-you-want-to-use-both-your-cpu-and-your-gpu-ignore-these-steps-just-launch-xmr-stakexe" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>If you want to use both your CPU and your GPU, ignore these steps. Just launch <code>xmr-stak.exe</code></h4>
+<ol start="4">
+<li><p>Click <code>Yes</code> when it asks if you want to run as Administrator. This is so that the program can see what hardware you're running.</p></li>
+<li><p>Check <a href="XMR-Stak#XMR-Stak-Setup-and-Configuration">XMR-Stak Setup and Configuration</a>.</p></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="downloading-and-installing-for-mac"></a><a href="#downloading-and-installing-for-mac" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Downloading and Installing for Mac</h2>
+<h3><a class="anchor" aria-hidden="true" id="dependencies"></a><a href="#dependencies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dependencies</h3>
+<p>Assuming you already have <a href="https://brew.sh/">Homebrew</a> installed, the installation of dependencies is pretty straightforward and will generate the <code>xmr-stak</code> binary in the <code>bin/</code> directory.</p>
+<h4><a class="anchor" aria-hidden="true" id="for-cpu-only"></a><a href="#for-cpu-only" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>For CPU-only</h4>
+<pre><code class="hljs">brew install hwloc libmicrohttpd gcc openssl cmake
+cmake . -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl -DCUDA_ENABLE=OFF -DOpenCL_ENABLE=OFF
+make install
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="for-nvidia-gpus"></a><a href="#for-nvidia-gpus" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>For NVIDIA GPUs</h4>
+<pre><code class="hljs">brew tap caskroom/drivers
+brew cask install nvidia-cuda
+brew install hwloc libmicrohttpd gcc openssl cmake
+cmake . -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl -DOpenCL_ENABLE=OFF
+make install
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="for-amd-gpus"></a><a href="#for-amd-gpus" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>For AMD GPUs</h4>
+<p>OpenCL is bundled with Xcode, so no other depedency then the basic ones needed. Just enable OpenCL via the <code>-DOpenCL_ENABLE=ON</code> CMake option.</p>
+<pre><code class="hljs">brew install hwloc libmicrohttpd gcc openssl cmake
+cmake . -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl -DCUDA_ENABLE=OFF -DOpenCL_ENABLE=ON
+make install
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="xmr-stak-setup-and-configuration"></a><a href="#xmr-stak-setup-and-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>XMR-Stak Setup and Configuration</h1>
+<p>Upon first launching XMR-Stak, the software will ask you several setup and configuration questions.</p>
+<ol>
+<li><code>Please enter: - Do you want to use the HTTP interface? Unlike the screen display, browser interface is not affected by the GPU lag. If you don't want to use it, please enter 0, otherwise enter port number that the miner should listen on</code></li>
+</ol>
+<p>Enter <code>0</code>, if you are like most people, and do not need to remotely check your hashrate.</p>
+<p>If you do need to, then enter a port number. Generally it is recommended to use a port number in the range 1025-65535. For example purposes, lets say you used 8257 as the port.</p>
+<p>To check the hashrate, enter in the address bar of your web browser, <code>127.0.0.1:8257</code>. Change the <code>8257</code> if you used a different port.</p>
+<p>It should show a page with your rig's hashrate.</p>
+<p>If you want to check your miners hashrate whilst you are on a different network, you will have to enter your computers IP address, followed by the port, for example, <code>198.51.100.0:8257</code>.</p>
+<p>You can find your computers IP by visiting this website whilst on that computer: <a href="https://whatsmyip.org/">https://whatsmyip.org/</a></p>
+<p>You will probably have to open the port you are running the interface on in your router admin panel. Instructions on how to do this are out of scope for this document.</p>
+<ol start="2">
+<li></li>
+</ol>
+<pre><code class="hljs">Please enter:
+- Please enter the currency that you want to mine:
+
+- aeon7
+- bbscoin
+- croat
+- cryptonight
+- cryptonight_heavy
+- cryptonight_lite
+- cryptonight_lite_v7
+- cryptonight_v7
+- edollar
+- electroneum
+- graft
+- haven
+- intense
+- karbo
+- monero7
+- stellite
+- sumokoin
+- turtlecoin
+</code></pre>
+<p>Enter cryptonight</p>
+<ol start="3">
+<li><code>- Pool address: e.g. pool.example.com:3333</code></li>
+</ol>
+<p>Choose a pool from any of the <a href="https://explorer.qwertycoin.org/#pools">available pools</a> that is closest to you and enter its URL (you will be able to add more later).</p>
+<ol start="4">
+<li><code>- Username (Wallet address or pool login):</code></li>
+</ol>
+<p>If you have not yet downloaded and ran the Qwertycoin core software to sync the blockchain and create a wallet, you can make a <a href="guides/wallets/Paper-Wallet">paper wallet</a> to start mining towards now, and import the wallet later.</p>
+<ol start="5">
+<li><p><code>- Password (mostly empty or x):</code>
+Enter <code>x</code>.</p></li>
+<li><p><code>- Rig identifier for pool-side statistics (needs pool support). Can be empty:</code>
+Leave it empty and press enter.</p></li>
+<li><p><code>- Does this pool port support TLS/SSL? Use no if unknown. (y/N)</code>
+In most cases, <code>N</code> is fine.</p></li>
+<li><p><code>- Do you want to use nicehash on this pool? (y/n)</code>
+Enter <code>n</code> (in case you do, enter y).</p></li>
+<li><p><code>- Do you want to use multiple pools? (y/n)</code></p></li>
+</ol>
+<ul>
+<li>Enter <code>y</code> if you would like to add more pools.</li>
+<li>Give the pools nearest to you a higher number, and the ones further from you a lower number. Give them all a weight of <code>10</code> if you don't care.</li>
+<li>XMR-Stak will prioritize the highest weight pool, and fall back to the others if it cannot connect.</li>
+<li>If they are all given the same weight, it will connect to them in order of how they are listed, form top to bottom, in the configuration file.</li>
+<li>If you are on Windows 7/8, it will ask for administrator permission again. Click <code>Yes</code> to grant it permission.</li>
+<li>If you are on Windows 10, it will not ask for it again.
+Done! The miner will now start scanning your hardware and will begin mining. Awesome!</li>
+</ul>
+<p>XMR-Stak will save your configuration in <code>config.txt</code> in the same directory from which it was first run. Your configuration for pools(algorithm to mine, address, port etc) will be saved in <code>pools.txt</code> The configuration of the device it mines(CPU/AMD/NVIDIA) will be saved in <code>cpu.txt</code>, <code>amd.txt</code> or <code>nvidia.txt</code>, respectively.</p>
+<p>Run XMR-Stak again from the same directory to reuse the configuration.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/guides/mining/Mining-With-SBC"><span class="arrow-prev">← </span><span>Mining With SBC</span></a><a class="docs-next button" href="/guides/mining/XMR-Stak-Linux"><span>XMR-Stak Linux</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#downloading-and-installing-for-linux">Downloading and Installing for Linux</a></li><li><a href="#downloading-and-installing-for-windows">Downloading and Installing for Windows</a></li><li><a href="#downloading-and-installing-for-mac">Downloading and Installing for Mac</a><ul class="toc-headings"><li><a href="#dependencies">Dependencies</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/fav.png" alt="Qwertycoin Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Getting-Started">Getting Started</a><a href="/guides/mining/Mining.html">Guides</a><a href="/developer/Compiling-From-Source.html">Developer Resources</a></div><div><h5>Community</h5><a href="https://discordapp.com/invite/kMykjNQ">Discord Chat</a><a href="https://www.reddit.com/r/QWERTYCOIN/">Reddit</a><a href="https://twitter.com/Qwertycoin_QWC" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://qwertycoin.org/blog">Blog</a><a href="https://github.com/qwertycoin-org">GitHub</a><a class="github-button" href="https://github.com/qwertycoin/qwertycoin-docs" data-icon="octicon-star" data-count-href="https://github.com/qwertycoin-org/qwertycoin-docs/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><div><section class="copyright">Copyright © 2019 Qwertycoin</section><section class="copyright">Docs released under the <a href="https://opensource.org/licenses/MIT">MIT License</a></section><section class="copyright">Qwertycoin released under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public V3 License</a></section></div></footer></div></body></html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Start Masternode · Qwertycoin Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Create linux service to start Qwertycoind on System Start"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Start Masternode · Qwertycoin Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://docs.qwertycoin.org/"/><meta property="og:description" content="## Create linux service to start Qwertycoind on System Start"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/fav.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Qwertycoin Docs"/><h2 class="headerTitleWithLogo">Qwertycoin Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/Getting-Started" target="_self">Getting Started</a></li><li class=""><a href="/about/About-Qwertycoin" target="_self">About</a></li><li class=""><a href="/Frequently-Asked-Questions" target="_self">FAQ</a></li><li class="siteNavGroupActive"><a href="/guides/mining/Mining" target="_self">Guides</a></li><li class=""><a href="/developer/Compiling-From-Source" target="_self">For Developers</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Daemon</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Mining<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/mining/Mining">Mining</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Cloud-Mining">Cloud Mining</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Mobile-Mining">Mobile Mining</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Using-a-Mining-Pool">Using a Mining Pool</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Mining-With-SBC">Mining With SBC</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/XMR-Stak">XMR-Stak</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/XMR-Stak-Linux">XMR-Stak Linux</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/XMRIG">XMRIG</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Creating-a-Mining-Pool">Creating a Mining Pool</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Wallets<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet">Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Generating-a-Wallet">Generating a Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Paper-Wallet">Paper Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Sign-and-Verify-Messages">Sign and Verify Messages</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Backup">Wallet Backup</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Update">Wallet Update</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Recovery">Wallet Recovery</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-CLI-Wallet">Using CLI Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-GUI-Wallet">Using GUI Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Zero-Wallet">Using Zero Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Web-Wallet">Using Web Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Mobile-Wallet">Using Mobile Wallet</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Config<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/config/Config">Config</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Daemon<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/daemon/Fix-Sync-Issues">Fix Sync Issues</a></li><li class="navListItem"><a class="navItem" href="/guides/daemon/Load-Checkpoints">Load Checkpoints</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/guides/daemon/Start-Masternode">Start Masternode</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Trading<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/trading/Trading">Trading</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-BISQ">How to Trade on BISQ</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-Bitexlive">How to Trade on Bitexlive</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-CREX24">How to Trade on CREX24</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/qwertycoin-org/qwertycoin-docs/edit/master/docs/guides/daemon/Start-Masternode.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Start Masternode</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="create-linux-service-to-start-qwertycoind-on-system-start"></a><a href="#create-linux-service-to-start-qwertycoind-on-system-start" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create linux service to start Qwertycoind on System Start</h2>
+<p>On this page you will find description how to run Qwertycoind with JSON PRC as linux service. I use Ubuntu server 16.03 x64, but this description you can be applied to any of the linux versions with small changes.</p>
+<ol>
+<li>Compile the latest Version from Sourcecode</li>
+</ol>
+<p>Use this compilation guides: <a href="https://github.com/qwertycoin-org/qwertycoin#how-to-compile">https://github.com/qwertycoin-org/qwertycoin#how-to-compile</a><br>
+For example under Ubuntu:</p>
+<pre><code class="hljs">git clone --recurse-submodules https://github.com/qwertycoin-org/qwertycoin
+cd ./qwertycoin
+mkdir ./build
+cd ./build
+cmake -DBUILD_ALL:BOOL=TRUE ..
+cmake --build . --config Release
+</code></pre>
+<ol start="2">
+<li>Copy all the compiled files in ./build/src/ to directory <em>/opt/qwertycoin/</em>:</li>
+</ol>
+<pre><code class="hljs">sudo mkdir -p /opt/qwertycoin/.Qwertycoin
+sudo cp ./src/* /opt/qwertycoin/
+</code></pre>
+<ol start="3">
+<li>To start service we will use user <em>qwertycoin</em>, so let's create it and manage permissions:</li>
+</ol>
+<pre><code class="hljs">sudo useradd qwertycoin
+sudo groupadd qwertycoin
+sudo usermod -a -G qwertycoin qwertycoin
+sudo chgrp -R qwertycoin /opt/qwertycoin/
+sudo chmod -R 770 /opt/qwertycoin/
+</code></pre>
+<ol start="4">
+<li>Create log file and add permissions to write it:</li>
+</ol>
+<pre><code class="hljs">sudo mkdir -p /var/log/qwertycoin
+sudo touch /var/log/qwertycoin/qwertycoind
+sudo chgrp -R qwertycoin /var/log/qwertycoin/qwertycoind
+sudo chmod -R 770 /var/log/qwertycoin/qwertycoind
+</code></pre>
+<ol start="5">
+<li>Let's check if everything is ok. Try to run daemon with <em>qwertycoin</em> user permission:</li>
+</ol>
+<pre><code class="hljs">sudo -u qwertycoin /opt/qwertycoin/qwertycoind --data-dir=/opt/qwertycoin/.Qwertycoin --log-file=/var/log/qwertycoin/qwertycoind --restricted-rpc --enable-cors=*  --enable-blockchain-indexes --rpc-bind-ip=0.0.0.0 --rpc-bind-port=8197 --fee-address=QWC1L4aAh5i7cbB813RQpsKP6pHXT2ymrbQCwQnQ3DC4QiyuhBUZw8dhAaFp8wH1Do6J9Lmim6ePv1SYFYs97yNV2xvSbTGc7s
+</code></pre>
+<p>Stop it via entering <code>exit</code> inside daemon session.</p>
+<ol start="6">
+<li>You could pre-download blockchain bootstrap to speed-up process:</li>
+</ol>
+<pre><code class="hljs">cd /opt/qwertycoin/.Qwertycoin
+wget https://blockchain.qwertycoin.org/snapshot_$(date "+%Y-%m-%d").tar.gz
+tar -xvzf snapshot_$(date "+%Y-%m-%d").tar.gz
+rm -f snapshot_$(date "+%Y-%m-%d").tar.gz
+sudo chgrp -R qwertycoin /opt/qwertycoin/
+sudo chmod -R 770 /opt/qwertycoin/
+</code></pre>
+<ol start="7">
+<li>To start <em>Qwertycoind</em> , we need to create service file in <em>/etc/systemd/system</em>:</li>
+</ol>
+<pre><code class="hljs">nano /etc/systemd/system/qwertycoind.service
+</code></pre>
+<pre><code class="hljs">[Unit]
+Description=Qwertycoind
+Documentation=https://qwertycoin.org
+After=syslog.target
+
+[Service]
+User=qwertycoin
+ExecStart=/opt/qwertycoin/qwertycoind --data-dir=/opt/qwertycoin/.Qwertycoin  \
+    --log-file=/var/log/qwertycoin/qwertycoind \
+    --restricted-rpc \
+    --enable-cors=* \
+    --enable-blockchain-indexes \
+    --rpc-bind-ip=0.0.0.0 \
+    --rpc-bind-port=8197 \
+    --fee-address=QWC1L4aAh5i7cbB813RQpsKP6pHXT2ymrbQCwQnQ3DC4QiyuhBUZw8dhAaFp8wH1Do6J9Lmim6ePv1SYFYs97yNV2xvSbTGc7s \
+    --contact contact@yourdomain.org
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Do not forget to change address to your wallet!</p>
+<ol start="8">
+<li>Run service:</li>
+</ol>
+<pre><code class="hljs">sudo systemctl daemon-reload
+sudo systemctl enable qwertycoind.service
+sudo systemctl start qwertycoind.service
+</code></pre>
+<ol start="9">
+<li>To check service status:</li>
+</ol>
+<pre><code class="hljs">systemctl status qwertycoind.service
+</code></pre>
+<pre><code class="hljs">● qwertycoind.service - Qwertycoind
+   Loaded: loaded (/etc/systemd/system/qwertycoind.service; enabled; vendor preset: enabled)
+   Active: active (running) since Sat 2018-06-08 04:11:30 EDT; 37s ago
+     Docs: https://qwertycoin.org
+ Main PID: 1882 (Qwertycoind)
+   CGroup: /system.slice/qwertycoind.service
+           └─1882 /opt/qwertycoin/qwertycoind --data-dir=/opt/qwertycoin/.Qwertycoin
+lines 1-7/7 (END)
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/guides/daemon/Load-Checkpoints"><span class="arrow-prev">← </span><span>Load Checkpoints</span></a><a class="docs-next button" href="/guides/trading/Trading"><span>Trading</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#create-linux-service-to-start-qwertycoind-on-system-start">Create linux service to start Qwertycoind on System Start</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/fav.png" alt="Qwertycoin Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Getting-Started">Getting Started</a><a href="/guides/mining/Mining.html">Guides</a><a href="/developer/Compiling-From-Source.html">Developer Resources</a></div><div><h5>Community</h5><a href="https://discordapp.com/invite/kMykjNQ">Discord Chat</a><a href="https://www.reddit.com/r/QWERTYCOIN/">Reddit</a><a href="https://twitter.com/Qwertycoin_QWC" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://qwertycoin.org/blog">Blog</a><a href="https://github.com/qwertycoin-org">GitHub</a><a class="github-button" href="https://github.com/qwertycoin/qwertycoin-docs" data-icon="octicon-star" data-count-href="https://github.com/qwertycoin-org/qwertycoin-docs/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><div><section class="copyright">Copyright © 2019 Qwertycoin</section><section class="copyright">Docs released under the <a href="https://opensource.org/licenses/MIT">MIT License</a></section><section class="copyright">Qwertycoin released under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public V3 License</a></section></div></footer></div></body></html>

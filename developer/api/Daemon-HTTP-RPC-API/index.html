@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Daemon HTTP RPC Commands · Qwertycoin Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="To start Daemon HTTP RPC API server you should specify a port on which server binds (additionally to standard daemon&#x27;s arguments). You can choose any free port. To do that execute the following command from the command line:"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Daemon HTTP RPC Commands · Qwertycoin Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://docs.qwertycoin.org/"/><meta property="og:description" content="To start Daemon HTTP RPC API server you should specify a port on which server binds (additionally to standard daemon&#x27;s arguments). You can choose any free port. To do that execute the following command from the command line:"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/fav.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Qwertycoin Docs"/><h2 class="headerTitleWithLogo">Qwertycoin Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/Getting-Started" target="_self">Getting Started</a></li><li class=""><a href="/about/About-Qwertycoin" target="_self">About</a></li><li class=""><a href="/Frequently-Asked-Questions" target="_self">FAQ</a></li><li class=""><a href="/guides/mining/Mining" target="_self">Guides</a></li><li class="siteNavGroupActive"><a href="/developer/Compiling-From-Source" target="_self">For Developers</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>API Documentation</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">For Developers<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/developer/Resources">Resources</a></li><li class="navListItem"><a class="navItem" href="/developer/Local-Testnet">Local Testnet</a></li><li class="navListItem"><a class="navItem" href="/developer/Compiling-From-Source">Compiling from Source</a></li><li class="navListItem"><a class="navItem" href="/developer/Forking-Qwertycoin">Forking Qwertycoin</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">API Documentation</h4><ul><li class="navListItem"><a class="navItem" href="/developer/api/Daemon-JSON-RPC-API">Daemon JSON RPC API</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/developer/api/Daemon-HTTP-RPC-API">Daemon HTTP RPC Commands</a></li><li class="navListItem"><a class="navItem" href="/developer/api/Using-RPC-Wallet">Using RPC Wallet</a></li><li class="navListItem"><a class="navItem" href="/developer/api/Wallet-RPC-API">Wallet RPC API</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Fixes<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/developer/fixes/Install-Cmake-3.10">Install Cmake 3.10</a></li><li class="navListItem"><a class="navItem" href="/developer/fixes/MacOS-QT-Install">MacOS QT Install</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/qwertycoin-org/qwertycoin-docs/edit/master/docs/developer/api/Daemon-HTTP-RPC-API.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Daemon HTTP RPC Commands</h1></header><article><div><span><p>To start Daemon HTTP RPC API server you should specify a port on which server binds (additionally to standard daemon's arguments). You can choose any free port. To do that execute the following command from the command line:</p>
+<p><code>./Qwertycoind --rpc-bind-port=8197</code></p>
+<p>If you want Daemon to be accessed from other computer not only yours you should also use a <code>--rpc-bind-ip 0.0.0.0</code> command. To do that execute the following command from the command line:</p>
+<p><code>./Qwertycoind --rpc-bind-ip=0.0.0.0 --rpc-bind-port=8197</code></p>
+<h2><a class="anchor" aria-hidden="true" id="inputing-commands"></a><a href="#inputing-commands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Inputing commands</h2>
+<p>You can input the commands into any browser but Firefox will give you the best interface for viewing. To begin type in the IP address or domain name of your daemon followed by the rpc port and one of the commands below.</p>
+<p><a href="https://ip_address:rpc_port/command">https://ip_address:rpc_port/command</a></p>
+<p>For example:</p>
+<p><a href="https://pool.qwertycoin.org:8197/getheight">https://pool.qwertycoin.org:8197/getheight</a></p>
+<ul>
+<li>The url above will display the current blockchain height.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="commands"></a><a href="#commands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Commands</h2>
+<h3><a class="anchor" aria-hidden="true" id="getinfo-returns-information-related-to-the-network-and-daemon-connection"></a><a href="#getinfo-returns-information-related-to-the-network-and-daemon-connection" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>getinfo</code> - returns information related to the network and daemon connection</h3>
+<ul>
+<li>Expected output</li>
+</ul>
+<p>{&quot;already_generated_coins&quot;:&quot;96407158135.65998447&quot;,</p>
+<p>&quot;alt_blocks_count&quot;:53,</p>
+<p>&quot;block_major_version&quot;:5,</p>
+<p>&quot;block_minor_version&quot;:0,</p>
+<p>&quot;contact&quot;:&quot;<a href="mailto:dev@qwertycoin.org">dev@qwertycoin.org</a>&quot;,</p>
+<p>&quot;difficulty&quot;:91532104667,</p>
+<p>&quot;fee_address&quot;:&quot;QWC1RALGaP5U8BLJskYR2YVSjr3DQEEuS5xghbtX2mm134YVXgS4RJHZGkeBvXf4BRFLWkv4zHGJ267S9pjwvVt63xwkdYPCwF,</p>
+<p>&quot;grey_peerlist_size&quot;:2430,</p>
+<p>&quot;height&quot;:388735,</p>
+<p>&quot;incoming_connections_count&quot;:10,</p>
+<p>&quot;last_block_difficulty&quot;:98871693571,</p>
+<p>&quot;last_block_reward&quot;:16796197998698,</p>
+<p>&quot;last_block_timestamp&quot;:1565818316,</p>
+<p>&quot;last_known_block_index&quot;:388734,</p>
+<p>&quot;min_tx_fee&quot;:100000000,</p>
+<p>&quot;outgoing_connections_count&quot;:7,</p>
+<p>&quot;readable_tx_fee&quot;:&quot;1.00000000&quot;,</p>
+<p>&quot;rpc_connections_count&quot;:17,</p>
+<p>&quot;start_time&quot;:1564440874,</p>
+<p>&quot;status&quot;:&quot;OK&quot;,</p>
+<p>&quot;top_block_hash&quot;:&quot;009e355219f2c4647650a7d1f4f8ae81af947964859f983fbeb38e148323ab9d&quot;,</p>
+<p>&quot;tx_count&quot;:1058803,</p>
+<p>&quot;tx_pool_size&quot;:42,</p>
+<p>&quot;version&quot;:&quot;5.2.1.3090 (25ffb5a)&quot;,</p>
+<p>&quot;white_peerlist_size&quot;:998}</p>
+<h3><a class="anchor" aria-hidden="true" id="getheight-returns-the-height-of-the-daemon-and-the-network"></a><a href="#getheight-returns-the-height-of-the-daemon-and-the-network" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>getheight</code> - returns the height of the daemon and the network</h3>
+<ul>
+<li>Expected output</li>
+</ul>
+<p>{&quot;height&quot;:388736,&quot;status&quot;:&quot;OK&quot;}</p>
+<h3><a class="anchor" aria-hidden="true" id="gettransactions-returns-list-of-missed-transactions"></a><a href="#gettransactions-returns-list-of-missed-transactions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>gettransactions</code> - returns list of missed transactions</h3>
+<ul>
+<li>Expected output</li>
+</ul>
+<p>{&quot;missed_tx&quot;:[],&quot;status&quot;:&quot;OK&quot;,&quot;txs_as_hex&quot;:[]}</p>
+<h3><a class="anchor" aria-hidden="true" id="feeaddress-returns-the-address-to-where-the-nodes-fees-are-sent"></a><a href="#feeaddress-returns-the-address-to-where-the-nodes-fees-are-sent" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>feeaddress</code> - returns the address to where the nodes fees are sent</h3>
+<ul>
+<li>Expected output</li>
+</ul>
+<p>{&quot;fee_address&quot;:&quot;QWC1RALGaP5U8BLJskYR2YVSjr3DQEEuS5xghbtX2mm134YVXgS4RJHZGkeBvXf4BRFLWkv4zHGJ267S9pjwvVt63xwkdYPCwF&quot;,&quot;status&quot;:&quot;OK&quot;}</p>
+<h3><a class="anchor" aria-hidden="true" id="getpeers-returns-the-list-of-peers-connected-to-the-daemon"></a><a href="#getpeers-returns-the-list-of-peers-connected-to-the-daemon" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>getpeers</code> - returns the list of peers connected to the daemon</h3>
+<ul>
+<li>Expected output</li>
+</ul>
+<p>{&quot;peers&quot;:[&quot;207.180.227.215:8196&quot;,
+&quot;220.82.126.94:8196&quot;,
+&quot;185.177.59.99:8196&quot;,
+&quot;80.211.204.60:8196&quot;,
+&quot;167.86.93.173:8196&quot;, ...],&quot;status&quot;:&quot;OK&quot;}</p>
+<h3><a class="anchor" aria-hidden="true" id="paymentid-returns-the-paymentid-of-the-node"></a><a href="#paymentid-returns-the-paymentid-of-the-node" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>paymentid</code> - returns the paymentid of the node</h3>
+<ul>
+<li>Expected output</li>
+</ul>
+<p>{&quot;payment_id&quot;:&quot;55c1259bddceff71a370d26e09d6bc88bcc5e0db61ea758e250700792e7cc532&quot;}</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/developer/api/Daemon-JSON-RPC-API"><span class="arrow-prev">← </span><span>Daemon JSON RPC API</span></a><a class="docs-next button" href="/developer/api/Using-RPC-Wallet"><span>Using RPC Wallet</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#inputing-commands">Inputing commands</a></li><li><a href="#commands">Commands</a><ul class="toc-headings"><li><a href="#getinfo-returns-information-related-to-the-network-and-daemon-connection"><code>getinfo</code> - returns information related to the network and daemon connection</a></li><li><a href="#getheight-returns-the-height-of-the-daemon-and-the-network"><code>getheight</code> - returns the height of the daemon and the network</a></li><li><a href="#gettransactions-returns-list-of-missed-transactions"><code>gettransactions</code> - returns list of missed transactions</a></li><li><a href="#feeaddress-returns-the-address-to-where-the-nodes-fees-are-sent"><code>feeaddress</code> - returns the address to where the nodes fees are sent</a></li><li><a href="#getpeers-returns-the-list-of-peers-connected-to-the-daemon"><code>getpeers</code> - returns the list of peers connected to the daemon</a></li><li><a href="#paymentid-returns-the-paymentid-of-the-node"><code>paymentid</code> - returns the paymentid of the node</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/fav.png" alt="Qwertycoin Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Getting-Started">Getting Started</a><a href="/guides/mining/Mining.html">Guides</a><a href="/developer/Compiling-From-Source.html">Developer Resources</a></div><div><h5>Community</h5><a href="https://discordapp.com/invite/kMykjNQ">Discord Chat</a><a href="https://www.reddit.com/r/QWERTYCOIN/">Reddit</a><a href="https://twitter.com/Qwertycoin_QWC" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://qwertycoin.org/blog">Blog</a><a href="https://github.com/qwertycoin-org">GitHub</a><a class="github-button" href="https://github.com/qwertycoin/qwertycoin-docs" data-icon="octicon-star" data-count-href="https://github.com/qwertycoin-org/qwertycoin-docs/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><div><section class="copyright">Copyright © 2019 Qwertycoin</section><section class="copyright">Docs released under the <a href="https://opensource.org/licenses/MIT">MIT License</a></section><section class="copyright">Qwertycoin released under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public V3 License</a></section></div></footer></div></body></html>

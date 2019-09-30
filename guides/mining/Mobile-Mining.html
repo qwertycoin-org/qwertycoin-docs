@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Mobile Mining · Qwertycoin Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="**Warning!** Cell phones are not made to mine cryptocurrencies. It may also cause the phone to overheat and result in premature silicon degradation, shortening the lifespan of your phone!"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Mobile Mining · Qwertycoin Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://docs.qwertycoin.org/"/><meta property="og:description" content="**Warning!** Cell phones are not made to mine cryptocurrencies. It may also cause the phone to overheat and result in premature silicon degradation, shortening the lifespan of your phone!"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/fav.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Qwertycoin Docs"/><h2 class="headerTitleWithLogo">Qwertycoin Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/Getting-Started" target="_self">Getting Started</a></li><li class=""><a href="/about/About-Qwertycoin" target="_self">About</a></li><li class=""><a href="/Frequently-Asked-Questions" target="_self">FAQ</a></li><li class="siteNavGroupActive"><a href="/guides/mining/Mining" target="_self">Guides</a></li><li class=""><a href="/developer/Compiling-From-Source" target="_self">For Developers</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Mining</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Mining<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/mining/Mining">Mining</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Cloud-Mining">Cloud Mining</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/guides/mining/Mobile-Mining">Mobile Mining</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Using-a-Mining-Pool">Using a Mining Pool</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Mining-With-SBC">Mining With SBC</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/XMR-Stak">XMR-Stak</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/XMR-Stak-Linux">XMR-Stak Linux</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/XMRIG">XMRIG</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Creating-a-Mining-Pool">Creating a Mining Pool</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Wallets<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet">Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Generating-a-Wallet">Generating a Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Paper-Wallet">Paper Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Sign-and-Verify-Messages">Sign and Verify Messages</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Backup">Wallet Backup</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Update">Wallet Update</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Recovery">Wallet Recovery</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-CLI-Wallet">Using CLI Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-GUI-Wallet">Using GUI Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Zero-Wallet">Using Zero Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Web-Wallet">Using Web Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Mobile-Wallet">Using Mobile Wallet</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Config<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/config/Config">Config</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Daemon<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/daemon/Fix-Sync-Issues">Fix Sync Issues</a></li><li class="navListItem"><a class="navItem" href="/guides/daemon/Load-Checkpoints">Load Checkpoints</a></li><li class="navListItem"><a class="navItem" href="/guides/daemon/Start-Masternode">Start Masternode</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Trading<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/trading/Trading">Trading</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-BISQ">How to Trade on BISQ</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-Bitexlive">How to Trade on Bitexlive</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-CREX24">How to Trade on CREX24</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/qwertycoin-org/qwertycoin-docs/edit/master/docs/guides/mining/Mobile-Mining.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Mobile Mining</h1></header><article><div><span><p><strong>Warning!</strong> Cell phones are not made to mine cryptocurrencies. It may also cause the phone to overheat and result in premature silicon degradation, shortening the lifespan of your phone!</p>
+<h2><a class="anchor" aria-hidden="true" id="miner-options-by-operating-systems"></a><a href="#miner-options-by-operating-systems" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Miner options by operating systems:</h2>
+<h3><a class="anchor" aria-hidden="true" id="ios"></a><a href="#ios" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iOS</h3>
+<ul>
+<li><a href="Mobile-Mining#mobile-miner">Mobile Miner</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="android"></a><a href="#android" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Android</h3>
+<ul>
+<li><a href="Mobile-Mining#mining-with-tony-monero">Tony Monero</a></li>
+<li><a href="Mobile-Mining#mining-with-aa-miner">AA Miner</a></li>
+<li><a href="Mobile-Mining#mining-with-termux">Termux</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="mining-with-arm64-ios-devices"></a><a href="#mining-with-arm64-ios-devices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mining with ARM64 iOS devices</h2>
+<h3><a class="anchor" aria-hidden="true" id="mobile-miner"></a><a href="#mobile-miner" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mobile Miner</h3>
+<p>You will need an <a href="https://developer.apple.com/">Apple Developer-enabled Apple ID</a> to get started.</p>
+<h4><a class="anchor" aria-hidden="true" id="installing"></a><a href="#installing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installing</h4>
+<ol>
+<li>Sign in <a href="https://developer.apple.com/">here</a> with your Apple ID to get a free developer account</li>
+<li>Install <a href="https://developer.apple.com/xcode/">Xcode</a> and log in with your registered Apple id</li>
+<li>Connect your iOS device to your Mac, and be sure that you have it set as a trusted device.</li>
+<li>Download <a href="https://dantheman827.github.io/ios-app-signer/">iOS App Signer</a> and the <a href="https://github.com/limneos/MobileMiner">MobileMiner.ipa</a></li>
+<li>Create a new Xcode Project</li>
+<li>Open up iOS App Signer, and select the MobileMiner.ipa input file, signing certificate, and provisioning profile from the Xcode project. Then click Start and save the resulting IPA file to your desktop.</li>
+<li>Open Xcode and select Window → Devices &amp; Simulators in the menu bar. On the Devices &amp; Simulators page, select your iPhone, click the ‘+’ sign under installed apps, and select the MobileMiner.ipa file created in Step 7. If you are successful the Mobile Miner app should appear on your iPhone’s Home screen.</li>
+<li>Go to Settings → General → Profiles &amp; Device Management and select your profile under Developer App. Tap the Trust button to enable MobileMiner to run on your device.</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="configuration"></a><a href="#configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h4>
+<ol>
+<li>Click on the 'Settings' logo on the top right of the screen</li>
+</ol>
+<p><img src="/assets/mining/mobileminer/mobile-start.png" alt="Mobile Miner"></p>
+<ol start="2">
+<li>Click the Edit Configuration tab in the settings menu</li>
+</ol>
+<p><img src="/assets/mining/mobileminer/mobile-settings.png" alt="Mobile Miner"></p>
+<ol start="3">
+<li>Input the pool URL, wallet address, password and select number of threads. Click the save button on the top right to save your configuration.</li>
+</ol>
+<p><img src="/assets/mining/mobileminer/mobile-edit.png" alt="Mobile Miner"></p>
+<h4><a class="anchor" aria-hidden="true" id="running-mobile-miner"></a><a href="#running-mobile-miner" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Running Mobile Miner</h4>
+<ol>
+<li>Change active mining configuration to the one you just created</li>
+<li>Press the 'Start Mining' button on the main page to begin mining with your current configuration</li>
+</ol>
+<ul>
+<li>Once the miner is started you can see your current hashrate, accepted shares and pool difficulty.</li>
+</ul>
+<p><img src="/assets/mining/mobileminer/mobile-mining.png" alt="Mobile Miner"></p>
+<ul>
+<li>To see the miner's log, press the 'Log' button and the bottom right of the screen. From there you can see the hashrate per thread and the accepted shares.</li>
+</ul>
+<p><img src="/assets/mining/mobileminer/mobile-log.png" alt="Mobile Miner"></p>
+<ul>
+<li>You can run the miner in the background by going to settings and selecting the 'Keep Alive in Background' switch.</li>
+</ul>
+<p><img src="/assets/mining/mobileminer/mobile-settings.png" alt="Mobile Miner"></p>
+<h2><a class="anchor" aria-hidden="true" id="mining-with-android-devices"></a><a href="#mining-with-android-devices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mining with Android devices</h2>
+<h3><a class="anchor" aria-hidden="true" id="mining-with-tony-monero"></a><a href="#mining-with-tony-monero" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mining with Tony Monero</h3>
+<h4><a class="anchor" aria-hidden="true" id="downloading"></a><a href="#downloading" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Downloading</h4>
+<ol>
+<li>Download the <a href="https://tonymonero.com/">Tony Monero</a> app from the Tony Monero website.</li>
+<li>Open the app and read through the agreement and accept/decline (the EXIT button). To use it, you will have to accept the agreement.</li>
+<li>Press the play button on the top right and wait for the application to test your device</li>
+<li>If your device is supported, you will be brought to a screen with a success message.</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="configuration-1"></a><a href="#configuration-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h4>
+<ol>
+<li>Leave Profile selection as default for now.</li>
+<li>Enter your Qwertycoin wallet address</li>
+<li>Enter a pool of your choice. To view a list of pools, you can go <a href="https://explorer.qwertycoin.org/#pools">here</a></li>
+<li>Enter the password of the pool. For most, it will be <code>x</code></li>
+<li>Specify how many cores you want to use. We recommend using half of how many cores your phone has. So if your phone has <code>8</code> cores, enter <code>4</code></li>
+<li>Click on the image with the three triangles (&lt;1&lt;1&lt;1) and tap the 2nd image from the right on the top row, for Qwertycoin</li>
+<li>Make sure Cryptonight support is checked.</li>
+<li>Press the play button on the top right to start mining</li>
+</ol>
+<p><img src="/assets/mining/mobileminer/tony-monero-mine.png" alt="tony-monero"></p>
+<h3><a class="anchor" aria-hidden="true" id="mining-with-aa-miner"></a><a href="#mining-with-aa-miner" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mining with AA Miner</h3>
+<h4><a class="anchor" aria-hidden="true" id="downloading-1"></a><a href="#downloading-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Downloading</h4>
+<ul>
+<li>Download the <a href="https://play.google.com/store/apps/details?id=com.aaminer.miner.guide">AA Miner</a> app from the Google Play Store.</li>
+<li>Upon downloading and installing, open the app.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="configuration-2"></a><a href="#configuration-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h4>
+<ol>
+<li>Select <code>Cryptonight</code> from the <code>Select Algorithm</code> dropdown menu.</li>
+<li>Specify how many cores you want to use. We recommend using half of how many cores your phone has. So if your phone has <code>8`` cores, enter</code>4```</li>
+<li>Enter a pool of your choice in the format <code>stratum+tcp://pool_url_address:pool_port</code>. To view a list of pools, you can go <a href="https://explorer.qwertycoin.org/#pools">here</a></li>
+<li>Enter your Qwertycoin wallet address</li>
+<li>Enter the password of the pool. For most, it will be <code>x</code></li>
+<li>Click on the Start Mining button to start mining.</li>
+</ol>
+<p><img src="/assets/mining/mobileminer/aa-miner.png" alt="aa-miner"></p>
+<h3><a class="anchor" aria-hidden="true" id="mining-with-termux"></a><a href="#mining-with-termux" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mining with Termux</h3>
+<p>Termux is an Android terminal emulator and Linux environment app. A minimal base system is installed initially and additional packages can be installed using the APT package manager.</p>
+<h4><a class="anchor" aria-hidden="true" id="download"></a><a href="#download" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Download</h4>
+<ul>
+<li>You can download <a href="https://termux.com/">Termux</a> from the <a href="https://play.google.com/store/apps/details?id=com.termux">Play Store</a> or from <a href="https://f-droid.org/repository/browse/?fdid=com.termux">F-droid</a>.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="configuration-3"></a><a href="#configuration-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h4>
+<p>Upon downloading and installing, open the app run the following commands:</p>
+<pre><code class="hljs">apt update
+</code></pre>
+<pre><code class="hljs">apt install wget cmake libuv-dev clang nano
+</code></pre>
+<pre><code class="hljs">wget "https://github.com/xmrig/xmrig/archive/v2.14.1.tar.gz" or wget "https://is.gd/QOZi6d"
+</code></pre>
+<pre><code class="hljs">tar xzvf v2.14.1.tar.gz
+</code></pre>
+<pre><code class="hljs">cd xmrig-2.14.1
+</code></pre>
+<pre><code class="hljs">mkdir build &amp;&amp; cd build
+</code></pre>
+<pre><code class="hljs">cmake .. -DWITH_HTTPD=OFF -DWITH_TLS=OFF
+</code></pre>
+<pre><code class="hljs">make
+</code></pre>
+<pre><code class="hljs">cp ../src/config.json config.json
+</code></pre>
+<pre><code class="hljs">nano config.json
+</code></pre>
+<ul>
+<li>Then adjust your config settings to match you wallet and pool etc. Find and change the following lines:</li>
+</ul>
+<pre><code class="hljs">algo: "cryptonight"
+url: "[pool address]"
+user: "[wallet address]"
+</code></pre>
+<ul>
+<li>Be sure to keep the quotes &quot;&quot; around your pool address and wallet address.</li>
+</ul>
+<pre><code class="hljs">./xmrig-notls
+</code></pre>
+<p>Instead of copy pasting each command individually you can copy paste what is below into Termux after you open it. It'll open the config file where you can make the edits as advised above and once you close nano <code>ctrl+x</code> to exit then
+<code>y</code> to confirm what to save then <code>enter</code> to use the same file. XMRig will then start once it's finished.</p>
+<pre><code class="hljs">apt update &amp;&amp; apt upgrade -y  &amp;&amp; \
+apt install wget cmake libuv-dev clang nano -y &amp;&amp; \
+wget "https://github.com/xmrig/xmrig/archive/v2.14.1.tar.gz" &amp;&amp; \
+tar xzvf v2.14.1.tar.gz &amp;&amp; \
+cd xmrig-2.14.1 &amp;&amp; \
+mkdir build &amp;&amp; cd build &amp;&amp; \
+cmake .. -DWITH_HTTPD=OFF -DWITH_TLS=OFF &amp;&amp; \
+make &amp;&amp; \
+cp ../src/config.json config.json &amp;&amp; \
+nano config.json &amp;&amp; \
+./xmrig-notls
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/guides/mining/Cloud-Mining"><span class="arrow-prev">← </span><span>Cloud Mining</span></a><a class="docs-next button" href="/guides/mining/Using-a-Mining-Pool"><span>Using a Mining Pool</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#miner-options-by-operating-systems">Miner options by operating systems:</a><ul class="toc-headings"><li><a href="#ios">iOS</a></li><li><a href="#android">Android</a></li></ul></li><li><a href="#mining-with-arm64-ios-devices">Mining with ARM64 iOS devices</a><ul class="toc-headings"><li><a href="#mobile-miner">Mobile Miner</a></li></ul></li><li><a href="#mining-with-android-devices">Mining with Android devices</a><ul class="toc-headings"><li><a href="#mining-with-tony-monero">Mining with Tony Monero</a></li><li><a href="#mining-with-aa-miner">Mining with AA Miner</a></li><li><a href="#mining-with-termux">Mining with Termux</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/fav.png" alt="Qwertycoin Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Getting-Started">Getting Started</a><a href="/guides/mining/Mining.html">Guides</a><a href="/developer/Compiling-From-Source.html">Developer Resources</a></div><div><h5>Community</h5><a href="https://discordapp.com/invite/kMykjNQ">Discord Chat</a><a href="https://www.reddit.com/r/QWERTYCOIN/">Reddit</a><a href="https://twitter.com/Qwertycoin_QWC" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://qwertycoin.org/blog">Blog</a><a href="https://github.com/qwertycoin-org">GitHub</a><a class="github-button" href="https://github.com/qwertycoin/qwertycoin-docs" data-icon="octicon-star" data-count-href="https://github.com/qwertycoin-org/qwertycoin-docs/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><div><section class="copyright">Copyright © 2019 Qwertycoin</section><section class="copyright">Docs released under the <a href="https://opensource.org/licenses/MIT">MIT License</a></section><section class="copyright">Qwertycoin released under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public V3 License</a></section></div></footer></div></body></html>
