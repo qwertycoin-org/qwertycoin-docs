@@ -1,7 +1,3 @@
----
-title: README
----
-
 Documentation for all things Qwertycoin
 
 ## About
