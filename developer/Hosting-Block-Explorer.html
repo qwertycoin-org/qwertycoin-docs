@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Hosting Block Explorer · Qwertycoin Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Install and run the Qwertycoin daemon on your server"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Hosting Block Explorer · Qwertycoin Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://docs.qwertycoin.org/"/><meta property="og:description" content="## Install and run the Qwertycoin daemon on your server"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/fav.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Qwertycoin Docs"/><h2 class="headerTitleWithLogo">Qwertycoin Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/Getting-Started" target="_self">Getting Started</a></li><li class=""><a href="/about/About-Qwertycoin" target="_self">About</a></li><li class=""><a href="/Frequently-Asked-Questions" target="_self">FAQ</a></li><li class=""><a href="/guides/config/Config" target="_self">Guides</a></li><li class="siteNavGroupActive"><a href="/developer/Compiling-From-Source" target="_self">For Developers</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>For Developers</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">For Developers<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/developer/Resources">Resources</a></li><li class="navListItem"><a class="navItem" href="/developer/Compiling-From-Source">Compiling from Source</a></li><li class="navListItem"><a class="navItem" href="/developer/Forking-Qwertycoin">Forking Qwertycoin</a></li><li class="navListItem"><a class="navItem" href="/developer/Google-Breakpad-Integration">Google Breakpad Integration</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/developer/Hosting-Block-Explorer">Hosting Block Explorer</a></li><li class="navListItem"><a class="navItem" href="/developer/Hosting-Faucet">Hosting Faucet</a></li><li class="navListItem"><a class="navItem" href="/developer/Hosting-Web-Wallet">Hosting Web Wallet</a></li><li class="navListItem"><a class="navItem" href="/developer/Local-Testnet">Local Testnet</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">API Documentation</h4><ul><li class="navListItem"><a class="navItem" href="/developer/api/Daemon-HTTP-RPC-API">Daemon HTTP RPC Commands</a></li><li class="navListItem"><a class="navItem" href="/developer/api/Daemon-JSON-RPC-API">Daemon JSON RPC API</a></li><li class="navListItem"><a class="navItem" href="/developer/api/Using-RPC-Wallet">Using RPC Wallet</a></li><li class="navListItem"><a class="navItem" href="/developer/api/Wallet-RPC-API">Wallet RPC API</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Fixes<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/developer/fixes/Install-Cmake-3.10">Install Cmake 3.10</a></li><li class="navListItem"><a class="navItem" href="/developer/fixes/MacOS-QT-Install">MacOS QT Install</a></li><li class="navListItem"><a class="navItem" href="/developer/fixes/Fix-Sync-Issues">Fix Sync Issues</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/qwertycoin-org/qwertycoin-docs/edit/master/docs/developer/Hosting-Block-Explorer.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Hosting Block Explorer</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="install-and-run-the-qwertycoin-daemon-on-your-server"></a><a href="#install-and-run-the-qwertycoin-daemon-on-your-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install and run the Qwertycoin daemon on your server</h2>
+<p>You can install the Qwertycoin daemon from precompiled sources or compile it yourself. Guides for both are below.</p>
+<h3><a class="anchor" aria-hidden="true" id="precompiled"></a><a href="#precompiled" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Precompiled</h3>
+<ul>
+<li>You can download the precompiled binaries <a href="https://releases.qwertycoin.org/">here</a>. Enter your downloaded file through your terminal and run <code>qwertycoind</code> with an open port like so:</li>
+</ul>
+<pre><code class="hljs">./qwertycoind --restricted-rpc --enable-cors=* --enable-blockchain-indexes --rpc-bind-ip=0.0.0.0 --rpc-bind-port=8197
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="compile-yourself"></a><a href="#compile-yourself" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Compile yourself</h3>
+<ul>
+<li>This is a guide for compiling on Linux (Ubuntu). For other operating systems you can find a guide <a href="https://github.com/qwertycoin-org/qwertycoin#windows-10-">here</a>.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="install-dependancies"></a><a href="#install-dependancies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install dependancies</h4>
+<pre><code class="hljs">sudo apt-get install build-essential cmake git
+</code></pre>
+<ul>
+<li>You will need Cmake version 3.10 to compile Qwertycoin. You can find a guide on installing that <a href="developer/fixes/Install-Cmake-3.10">here</a>.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="building"></a><a href="#building" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building</h4>
+<ul>
+<li>After installing the dependencies you can run this simple script:</li>
+</ul>
+<pre><code class="hljs">git clone --recurse-submodules https://github.com/qwertycoin-org/qwertycoin
+cd ./qwertycoin
+mkdir ./build
+cd ./build
+cmake -DBUILD_ALL:BOOL=TRUE ..
+cmake --build . --config Release
+</code></pre>
+<ul>
+<li><p>If all went well, it will complete successfully, and you will find all your binaries in the <code>./build/src</code> directory.</p></li>
+<li><p>Finally run <code>qwertycoind</code> with an open port like so:</p></li>
+</ul>
+<pre><code class="hljs">./qwertycoind --restricted-rpc --enable-cors=* --enable-blockchain-indexes --rpc-bind-ip=0.0.0.0 --rpc-bind-port=8197
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="install-the-block-explorer-code"></a><a href="#install-the-block-explorer-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install the block explorer code</h2>
+<p>You can host the block explorer with Apache or Nginx. For this guide I will be using Apache.</p>
+<ul>
+<li>Install Apache</li>
+</ul>
+<pre><code class="hljs">sudo apt-get update
+
+sudo apt-get install apache2
+
+sudo ufw allow 'Apache Full'
+</code></pre>
+<ul>
+<li>Next download the block explorer code</li>
+</ul>
+<pre><code class="hljs">git clone https://github.com/qwertycoin-org/qwertycoin-blockchain-explorer.git
+</code></pre>
+<ul>
+<li><p>Change the 'api' variable in config.js to point to your daemon. Also change the '$apiNode=' variable in /api/index.php to point the API urls to your daemon.</p></li>
+<li><p>Once that is done copy all the files to the html directory.</p></li>
+</ul>
+<pre><code class="hljs">sudo cp -rf api/ config.js css/ favicon.ico index.html js/ LICENSE pages/ q/ README.md /var/www/html/
+</code></pre>
+<ul>
+<li>Your block explorer can now be seen at your servers address.</li>
+</ul>
+<p>Extra:</p>
+<ul>
+<li>You can change the look of your block explorer by playing around with the <code>css</code> files.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/developer/Google-Breakpad-Integration"><span class="arrow-prev">← </span><span>Google Breakpad Integration</span></a><a class="docs-next button" href="/developer/Hosting-Faucet"><span>Hosting Faucet</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#install-and-run-the-qwertycoin-daemon-on-your-server">Install and run the Qwertycoin daemon on your server</a><ul class="toc-headings"><li><a href="#precompiled">Precompiled</a></li><li><a href="#compile-yourself">Compile yourself</a></li></ul></li><li><a href="#install-the-block-explorer-code">Install the block explorer code</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/fav.png" alt="Qwertycoin Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Getting-Started">Getting Started</a><a href="/guides/config/Config.html">Guides</a><a href="/developer/Compiling-From-Source.html">Developer Resources</a></div><div><h5>Community</h5><a href="https://discordapp.com/invite/kMykjNQ">Discord Chat</a><a href="https://www.reddit.com/r/QWERTYCOIN/">Reddit</a><a href="https://twitter.com/Qwertycoin_QWC" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://qwertycoin.org/blog">Blog</a><a href="https://github.com/qwertycoin-org">GitHub</a><a class="github-button" href="https://github.com/qwertycoin-org/qwertycoin-docs" data-icon="octicon-star" data-count-href="https://github.com/qwertycoin-org/qwertycoin-docs/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><div><section class="copyright">Copyright © 2019 Qwertycoin</section><section class="copyright">Docs released under the <a href="https://opensource.org/licenses/MIT">MIT License</a></section><section class="copyright">Qwertycoin released under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public V3 License</a></section></div></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'b2b606a17a4f4a6ad7649bc23ca412d6',
+                indexName: 'qwertycoin',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
