@@ -20,6 +20,9 @@
       "about/Qwertycoin-Voting": {
         "title": "Qwertycoin Voting"
       },
+      "about/Telegram-Group-Rules": {
+        "title": "Telegram Group Rules"
+      },
       "Contributors": {
         "title": "Contributors"
       },
@@ -29,14 +32,14 @@
       "developer/api/Daemon-JSON-RPC-API": {
         "title": "Daemon JSON RPC API"
       },
-      "developer/api/Using-RPC-Wallet": {
-        "title": "Using RPC Wallet"
-      },
       "developer/api/Wallet-RPC-API": {
         "title": "Wallet RPC API"
       },
       "developer/Compiling-From-Source": {
         "title": "Compiling from Source"
+      },
+      "developer/fixes/Fix-Sync-Issues": {
+        "title": "Fix Sync Issues"
       },
       "developer/fixes/Install-Cmake-3.10": {
         "title": "Install Cmake 3.10"
@@ -46,6 +49,18 @@
       },
       "developer/Forking-Qwertycoin": {
         "title": "Forking Qwertycoin"
+      },
+      "developer/Google-Breakpad-Integration": {
+        "title": "Google Breakpad Integration"
+      },
+      "developer/Hosting-Block-Explorer": {
+        "title": "Hosting Block Explorer"
+      },
+      "developer/Hosting-Faucet": {
+        "title": "Hosting Faucet"
+      },
+      "developer/Hosting-Web-Wallet": {
+        "title": "Hosting Web Wallet"
       },
       "developer/Local-Testnet": {
         "title": "Local Testnet"
@@ -128,6 +143,9 @@
       "guides/wallets/Using-Mobile-Wallet": {
         "title": "Using Mobile Wallet"
       },
+      "guides/wallets/Using-RPC-Wallet": {
+        "title": "Using RPC Wallet"
+      },
       "guides/wallets/Using-Web-Wallet": {
         "title": "Using Web Wallet"
       },
@@ -149,26 +167,30 @@
       "Home": {
         "title": "Home"
       },
+      "Merchants": {
+        "title": "Merchants"
+      },
+      "Mining-Stats": {
+        "title": "Mining Stats"
+      },
       "README": {
         "title": "README"
       }
     },
     "links": {
       "Getting Started": "Getting Started",
-      "About": "About",
-      "FAQ": "FAQ",
       "Guides": "Guides",
       "For Developers": "For Developers"
     },
     "categories": {
       "Getting Started": "Getting Started",
-      "Frequently Asked Questions": "Frequently Asked Questions",
       "About": "About",
-      "Mining": "Mining",
-      "Wallets": "Wallets",
+      "Frequently Asked Questions": "Frequently Asked Questions",
       "Config": "Config",
       "Daemon": "Daemon",
+      "Mining": "Mining",
       "Trading": "Trading",
+      "Wallets": "Wallets",
       "For Developers": "For Developers",
       "Fixes": "Fixes"
     }

@@ -10,7 +10,7 @@ The exchange stores your funds securely, all personal data is stored locally, an
 It is available on Windows, Mac and several different Linux distributions.
 
 ## Download
-* Download the app from the website [here]().
+* Download the app from the website [here](https://bisq.network/).
 
 ![Bisq Homepage](assets/exchange/BisqExchange/bisq-website-home.png)
 

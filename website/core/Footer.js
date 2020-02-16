@@ -41,7 +41,7 @@ class Footer extends React.Component {
             <a href={this.docUrl('Getting-Started')}>
               Getting Started
             </a>
-            <a href={this.docUrl('guides/mining/Mining.html')}>
+            <a href={this.docUrl('guides/config/Config.html')}>
               Guides
             </a>
             <a href={this.docUrl('developer/Compiling-From-Source.html')}>
@@ -65,7 +65,7 @@ class Footer extends React.Component {
             <a href="https://github.com/qwertycoin-org">GitHub</a>
             <a
               className="github-button"
-              href="https://github.com/qwertycoin/qwertycoin-docs"
+              href="https://github.com/qwertycoin-org/qwertycoin-docs"
               data-icon="octicon-star"
               data-count-href={`${repoUrl}/stargazers`}
               data-show-count="true"

@@ -2,81 +2,86 @@
    "getting-started": {
       "Getting Started": [
          "Getting-Started"
-      ]
-   },
-   "faq": {
-      "Frequently Asked Questions": [
-         "Frequently-Asked-Questions"
-      ]
-   },
-   "about": {
+      ],
       "About": [
          "about/About-Qwertycoin",
          "about/Community",
          "about/Contributing",
+         "Merchants",
+         "Mining-Stats",
+         "about/Qwertycoin-API",
          "about/Qwertycoin-Voting",
-         "about/Qwertycoin-API"
+         "about/Telegram-Group-Rules"
+      ],
+      "Frequently Asked Questions": [
+         "Frequently-Asked-Questions"
       ]
    },
    "guides": {
+      "Config": [
+        "guides/config/Config"
+      ],
+      "Daemon": [
+         "guides/daemon/Fix-Sync-Issues",
+         "guides/daemon/Load-Checkpoints",
+         "guides/daemon/Start-Masternode"
+      ],
       "Mining": [
          "guides/mining/Mining",
          "guides/mining/Cloud-Mining",
+         "guides/mining/Creating-a-Mining-Pool",
+         "guides/mining/Mining-With-SBC",
          "guides/mining/Mobile-Mining",
          "guides/mining/Using-a-Mining-Pool",
-         "guides/mining/Mining-With-SBC",
          "guides/mining/XMR-Stak",
          "guides/mining/XMR-Stak-Linux",
-         "guides/mining/XMRIG",
-         "guides/mining/Creating-a-Mining-Pool"
-      ],
-      "Wallets": [
-         "guides/wallets/Wallet",
-         "guides/wallets/Generating-a-Wallet",
-         "guides/wallets/Paper-Wallet",
-         "guides/wallets/Sign-and-Verify-Messages",
-         "guides/wallets/Wallet-Backup",
-         "guides/wallets/Wallet-Update",
-         "guides/wallets/Wallet-Recovery",
-         "guides/wallets/Using-CLI-Wallet",
-         "guides/wallets/Using-GUI-Wallet",
-         "guides/wallets/Using-Zero-Wallet",
-         "guides/wallets/Using-Web-Wallet",
-         "guides/wallets/Using-Mobile-Wallet"
-      ],
-      "Config": [
-         "guides/config/Config"
-      ],
-      "Daemon": [
-          "guides/daemon/Fix-Sync-Issues",
-          "guides/daemon/Load-Checkpoints",
-          "guides/daemon/Start-Masternode"
+         "guides/mining/XMRIG"
       ],
       "Trading": [
           "guides/trading/Trading",
           "guides/trading/How-to-Trade-on-BISQ",
           "guides/trading/How-to-Trade-on-Bitexlive",
           "guides/trading/How-to-Trade-on-CREX24"
+      ],
+      "Wallets": [
+         "guides/wallets/Wallet",
+         "guides/wallets/Generating-a-Wallet",
+         "guides/wallets/Paper-Wallet",
+         "guides/wallets/Sign-and-Verify-Messages",
+         "guides/wallets/Using-CLI-Wallet",
+         "guides/wallets/Using-GUI-Wallet",
+         "guides/wallets/Using-Mobile-Wallet",
+         "guides/wallets/Using-RPC-Wallet",
+         "guides/wallets/Using-Web-Wallet",
+         "guides/wallets/Using-Zero-Wallet",
+         "guides/wallets/Wallet-Backup",
+         "guides/wallets/Wallet-Recovery",
+         "guides/wallets/Wallet-Update"
       ]
    },
+
    "devs": {
       "For Developers": [
-         "developer/Resources",
-         "developer/Local-Testnet",
          "developer/Compiling-From-Source",
          "developer/Forking-Qwertycoin",
+         "developer/Google-Breakpad-Integration",
+         "developer/Hosting-Block-Explorer",
+         "developer/Hosting-Faucet",
+         "developer/Hosting-Web-Wallet",
+         "developer/Local-Testnet",
+         "developer/Resources",
          {
             "type": "subcategory",
             "label": "API Documentation",
             "ids": [
-               "developer/api/Daemon-JSON-RPC-API",
                "developer/api/Daemon-HTTP-RPC-API",
-               "developer/api/Using-RPC-Wallet",
+               "developer/api/Daemon-JSON-RPC-API",
                "developer/api/Wallet-RPC-API"
             ]
          }
       ],
       "Fixes": [
+          "developer/fixes/Fix-Sync-Issues",
           "developer/fixes/Install-Cmake-3.10",
           "developer/fixes/MacOS-QT-Install"
       ]

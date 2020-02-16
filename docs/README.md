@@ -1,3 +1,9 @@
+---
+title: README
+---
+
+Documentation for all things Qwertycoin
+
 ## About
 This repository is the **official** home of all Qwertycoin documentation and should be regarded as the *single source of truth* for all 'official' or officially supported Qwertycoin projects. Because of the distributed, open, community-driven nature of our development teams, we believe the easiest approach to managing our documentation is to organize all of it in this central repository. This helps to avoid duplication and inconsistency and relieves contributors from having to track down and edit multiple documents in multiple places.  
 The community makes a best-effort to keep documentation accurate and up-to-date, but please be aware that it may not always reflect reality - code changes may be released before documentation is updated.
@@ -16,15 +22,8 @@ Changes, edits, and other contributions to the Qwertycoin documentation can be s
 Please be granular and make a single commit per change/set of related changes (or file an Issue for each change if not directly submitting PR's). This will make reviewing changes easier and increase the speed and efficiency of getting your changes merged in.
 
 ## Thanks and Contributors
-Huge thank you to everyone here, they've made major commits to the wiki and helped make it what it is today!
 
-* @blockinator
-* @ghostx1x
-* @Xecute0101
+- [@blockinator](https://github.com/blockinator/)
+- the Qwertycoin community.
+
 ...more to be listed soon!
-
-And, of course-
-
-* the Qwertycoin Community
-
-Qwertycoin Docs was built with [Docusaurus](https://docusaurus.io/en/)

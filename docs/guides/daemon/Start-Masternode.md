@@ -2,7 +2,12 @@
 title: Start Masternode
 ---
 
-## Create linux service to start Qwertycoind on System Start
+# Table of contents
+1. [Create a Linux Masternode](#linux)
+2. [Create a Windows Masternode](#windows)
+3. [Create a macOS Masternode](#macos)
+
+## Create linux service to start Qwertycoind<a name="linux"></a>
 
 On this page you will find description how to run Qwertycoind with JSON PRC as linux service. I use Ubuntu server 16.03 x64, but this description you can be applied to any of the linux versions with small changes.
 
@@ -120,3 +125,49 @@ systemctl status qwertycoind.service
            └─1882 /opt/qwertycoin/qwertycoind --data-dir=/opt/qwertycoin/.Qwertycoin
 lines 1-7/7 (END)
 ```
+
+## Create a Masternode on Windows using qwertycoind.exe <a name="windows"></a>
+
+On this page you will find description how to run Qwertycoind I use Windowx x64 Enterprise, but this description you can be applied to any Windows Version (> Windows 7).
+
+1. Compile the latest Version from Sourcecode
+**OR! download a prebuilt Release from here**: https://releases.qwertycoin.org/
+
+Use this compilation guides: https://github.com/qwertycoin-org/qwertycoin#how-to-compile
+
+For example under Windows:
+```
+git clone https://github.com/qwertycoin-org/qwertycoin
+cd qwertycoin
+md build
+cd build
+cmake -G "Visual Studio 15 2017 Win64" -DBUILD_ALL:BOOL=TRUE ..
+cmake --build . --config Release
+```
+
+If you use a prebuilt Version, download it, install it and forward to Step 3
+
+2. Self compiled Versions:
+If all went well, it will complete successfully, and you will find all your binaries in the `.\build\src\Release` directory
+
+Open a CMD on Windows and navigate to this folder.
+For example:
+(the folder structure could be different.)
+
+`cd C:\Github\qwertycoin\build\src\Release`
+
+3. Prebuilt Versions:
+
+After installation you will find the binaries in:
+
+`C:\Program Files\qwertycoin\bin`
+
+4. Start the Masternode in a CMD
+
+Copy and paste the following (that's one single line!):
+
+`qwertycoind.exe --restricted-rpc --enable-cors=* --enable-blockchain-indexes --rpc-bind-ip=0.0.0.0 --rpc-bind-port=8197 --fee-address=QWC1L4aAh5i7cbB813RQpsKP6pHXT2ymrbQCwQnQ3DC4QiyuhBUZw8dhAaFp8wH1Do6J9Lmim6ePv1SYFYs97yNV2xvSbTGc7s`
+
+If you want you can replace the developers fee address with your own QWC Wallet address (Not necessary)
+
+5. Done

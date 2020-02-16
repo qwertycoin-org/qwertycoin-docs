@@ -7,40 +7,32 @@ On this page you will find description of every method in Qwertycoin RPC Wallet 
 More on how to start and operate Qwertycoin RPC Wallet can be found here: [Using-RPC-Wallet.md Qwertycoin RPC Wallet].
 
 To make a JSON PRC request to your Qwertycoin RPC Wallet you should use POST request that looks like this:
+
 ```
  http://<service address>:<service port>/json_rpc
 ```
+
 Where:
 * <service address> is an IP of Qwertycoin RPC Wallet, if RPC Wallet is located on local machine it is either 127.0.0.1 or localhost,
 * <service port> is Qwertycoin RPC Wallet port, by default it is binded to 8070 port, but it can be manually binded to any port you want, read more about this
 
 
-==Reset==
+## Reset
 
-'''reset()''' method allows you to re-sync your wallet.
+**reset()** method allows you to re-sync your wallet.
 
 
 Input.
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Mandatory
-! Description
-! Format
-! Example
-|-
-| viewSecretKey
-| align="center" | No
-| Private view key
-| string
-| 4a2583e42d010e8aabfed22743789569714196246bf01b5f2fec35af9232d907
-|}
+| Argument      | Mandatory | Description      | Format | Example                                                          |
+|---------------|-----------|------------------|--------|------------------------------------------------------------------|
+| viewSecretKey | No        | Private view key | string | 4a2583e42d010e8aabfed22743789569714196246bf01b5f2fec35af9232d907 |
 
 
 No output in case of success.
 
 
-'''Important:''' If the view_secret_key was not pointed out reset() methods resets the wallet and re-syncs it. If the view_secret_key argument was pointed out reset() method substitutes the existing wallet with a new one with a specified view_secret_key and creates an address for it.
+**Important:** If the view_secret_key was not pointed out reset() methods resets the wallet and re-syncs it. If the view_secret_key argument was pointed out reset() method substitutes the existing wallet with a new one with a specified view_secret_key and creates an address for it.
 
 
 Input value example:
@@ -64,9 +56,9 @@ Output value example:
  }
 ```
 
-==Save==
+## Save
 
-'''save()''' method allows you to save your wallet by request.
+**save()** method allows you to save your wallet by request.
 
 
 No input.
@@ -94,9 +86,9 @@ Output value example:
  }
 ```
 
-==Get view key==
+## Get view key
 
-'''getViewKey()''' method returns your view key.
+**getViewKey()** method returns your view key.
 
 
 No input.
@@ -104,17 +96,9 @@ No input.
 
 Output:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Description
-! Format
-! Example
-|-
-| viewSecretKey
-| Private view key
-| string
-| 4a2583e42d010e8aabfed22743789569714196246bf01b5f2fec35af9232d907
-|}
+| Argument      | Description      | Format | Example                                                          |
+|---------------|------------------|--------|------------------------------------------------------------------|
+| viewSecretKey | Private view key | string | 4a2583e42d010e8aabfed22743789569714196246bf01b5f2fec35af9232d907 |
 
 
 Input Example:
@@ -139,45 +123,21 @@ Return value example:
  }
 ```
 
-==Get spend keys==
+## Get spend keys
 
-'''getSpendKeys()''' method returns your spend keys.
-
-
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Mandatory
-! Description
-! Format
-! Example
-|-
-| address
-| Yes
-| Valid and existing in this container address
-| string
-| KfXkT5VmdqmA7bWqSH37p87hSXBdTpTogN4mGHPARUSJaLse6jbXaVbVkLs3DwcmuD88xfu835Zvh6qBPCUXw6CHK8koDCt
-|}
+**getSpendKeys()** method returns your spend keys.
 
 
+| Argument | Mandatory | Description                                  | Format | Example                                                                                         |
+|----------|-----------|----------------------------------------------|--------|-------------------------------------------------------------------------------------------------|
+| address  | Yes       | Valid and existing in this container address | string | KfXkT5VmdqmA7bWqSH37p87hSXBdTpTogN4mGHPARUSJaLse6jbXaVbVkLs3DwcmuD88xfu835Zvh6qBPCUXw6CHK8koDCt |
 
 Output:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Description
-! Format
-! Example
-|-
-| spendSecretKey
-| Private spend key
-| string
-| 4a2583e42d010e8aabfed22743789569714196246bf01b5f2fec35af9232d907
-|-
-| spendPublicKey
-| Public spend key
-| string
-| 4a2583e42d010e8aabfed22743789569714196246bf01b5f2fec35af9232d907
-|}
+| Argument       | Description       | Format | Example                                                          |
+|----------------|-------------------|--------|------------------------------------------------------------------|
+| spendSecretKey | Private spend key | string | 4a2583e42d010e8aabfed22743789569714196246bf01b5f2fec35af9232d907 |
+| spendPublicKey | Public spend key  | string | 4a2583e42d010e8aabfed22743789569714196246bf01b5f2fec35af9232d907 |
 
 
 Input Example:
@@ -204,9 +164,9 @@ Return value example:
  }
 ```
 
-==Get addresses==
+## Get addresses
 
-'''getAddresses()''' method returns an array of your RPC Wallet's addresses.
+**getAddresses()** method returns an array of your RPC Wallet's addresses.
 
 
 No input.
@@ -214,17 +174,9 @@ No input.
 
 Output:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Description
-! Format
-! Example
-|-
-| align="center" | addresses
-| Array of strings, where each strings is an address
-| align="center" | array
-| align="center" | See below
-|}
+| Argument  | Description                                        | Format | Example   |
+|-----------|----------------------------------------------------|--------|-----------|
+| addresses | Array of strings, where each strings is an address | array  | See below |
 
 
 Input example:
@@ -251,51 +203,28 @@ Output example:
  }
 ```
 
-==Create address==
+## Create address
 
-'''createAddress()''' method creates an additional address in your wallet.
+**createAddress()** method creates an additional address in your wallet.
 
 
 Input:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Mandatory
-! Description
-! Format
-! Example
-|-
-| align="center" | secretSpendKey
-| align="center" | No
-| Private spend key. If secretSpendKey was specified, RPC Wallet creates spend address
-| align="center" | string
-| align="center" |
-|-
-| align="center" | publicSpendKey
-| align="center" | No
-| Public spend key. If publicSpendKey was specified, RPC Wallet creates view address
-| align="center" | string
-| align="center" |
-|}
+| Argument       | Mandatory | Description                                                                          | Format | Example |
+|----------------|-----------|--------------------------------------------------------------------------------------|--------|---------|
+| secretSpendKey | No        | Private spend key. If secretSpendKey was specified, RPC Wallet creates spend address | string |         |
+| publicSpendKey | No        | Public spend key. If publicSpendKey was specified, RPC Wallet creates view address   | string |         |
 
-'''Note:''' If none of the above mentioned parameters were specified, RPC Wallet creates spend address with generated spend key.
+**Note:** If none of the above mentioned parameters were specified, RPC Wallet creates spend address with generated spend key.
 
-'''Note:''' both above mentioned parameters can't be present in a single request
+**Note:** both above mentioned parameters can't be present in a single request
 
 
 Output:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Description
-! Format
-! Example
-|-
-| address
-| Created address
-| string
-| KfXkT5VmdqmA7bWqSH37p87hSXBdTpTogN4mGHPARUSJaLse6jbXaVbVkLs3DwcmuD88xfu835Zvh6qBPCUXw6CHK8koDCt
-|}
+| Argument | Description     | Format | Example                                                                                         |
+|----------|-----------------|--------|-------------------------------------------------------------------------------------------------|
+| address  | Created address | string | KfXkT5VmdqmA7bWqSH37p87hSXBdTpTogN4mGHPARUSJaLse6jbXaVbVkLs3DwcmuD88xfu835Zvh6qBPCUXw6CHK8koDCt |
 
 
 Input value example:
@@ -319,26 +248,16 @@ Output value example:
  }
 ```
 
-==Delete address==
+## Delete address
 
-'''deleteAddress()''' method deletes a specified address.
+**deleteAddress()** method deletes a specified address.
 
 
 Input:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Mandatory
-! Description
-! Format
-! Example
-|-
-| align="center" | address
-| align="center" | Yes
-| An address to be deleted.
-| align="center" | string
-| KfXkT5VmdqmA7bWqSH37p87hSXBdTpTogN4mGHPARUSJaLse6jbXaVbVkLs3DwcmuD88xfu835Zvh6qBPCUXw6CHK8koDCt
-|}
+| Argument | Mandatory | Description               | Format | Example                                                                                         |
+|----------|-----------|---------------------------|--------|-------------------------------------------------------------------------------------------------|
+| address  | Yes       | An address to be deleted. | string | KfXkT5VmdqmA7bWqSH37p87hSXBdTpTogN4mGHPARUSJaLse6jbXaVbVkLs3DwcmuD88xfu835Zvh6qBPCUXw6CHK8koDCt |
 
 
 Output:
@@ -368,48 +287,25 @@ Output example:
 ```
 
 
-==Get balance==
+## Get balance
 
-'''getBalance()''' method returns a balance for a specified address.
+**getBalance()** method returns a balance for a specified address.
 
-'''Please note:''' If address is not specified, returns a cumulative balance of all RPC Wallet's addresses.
+**Please note:** If address is not specified, returns a cumulative balance of all RPC Wallet's addresses.
 
 
 Input:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Mandatory
-! Description
-! Format
-! Example
-|-
-| align="center" | address
-| align="center" | No
-| Valid and existing address in this particular wallet
-| align="center" | string
-| align="center" | KfXkT5VmdqmA7bWqSH37p87hSXBdTpTogN4mGHPARUSJaLse6jbXaVbVkLs3DwcmuD88xfu835Zvh6qBPCUXw6CHK8koDCt
-|}
-
+| Argument | Mandatory | Description                                          | Format | Example                                                                                         |
+|----------|-----------|------------------------------------------------------|--------|-------------------------------------------------------------------------------------------------|
+| address  | No        | Valid and existing address in this particular wallet | string | KfXkT5VmdqmA7bWqSH37p87hSXBdTpTogN4mGHPARUSJaLse6jbXaVbVkLs3DwcmuD88xfu835Zvh6qBPCUXw6CHK8koDCt |
 
 Output:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Description
-! Format
-! Example
-|-
-| align="center" | availableBalance
-| Available balance of the specified address
-| align="center" | uint64
-| align="center" | 123123
-|-
-| align="center" | lockedAmount
-| Locked amount of the specified address
-| align="center" | uint64
-| align="center" | 123123
-|}
+| Argument         | Description                                | Format | Example |
+|------------------|--------------------------------------------|--------|---------|
+| availableBalance | Available balance of the specified address | uint64 | 123123  |
+| lockedAmount     | Locked amount of the specified address     | uint64 | 123123  |
 
 
 Input example:
@@ -436,47 +332,23 @@ Output example:
 ```
 
 
-==Get block hashes==
+## Get block hashes
 
-'''getBlockHashes()''' method returns an array of block hashes for a specified block range.
+**getBlockHashes()** method returns an array of block hashes for a specified block range.
 
 
 Input:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Mandatory
-! Description
-! Format
-! Example
-|-
-| align="center" | firstBlockIndex
-| align="center" | Yes
-| Starting height
-| align="center" | uint32
-| align="center" | 123123
-|-
-| align="center" | blockCount
-| align="center" | Yes
-| Number of blocks to process
-| align="center" | uint32
-| align="center" | 20
-|}
-
+| Argument        | Mandatory | Description                 | Format | Example |
+|-----------------|-----------|-----------------------------|--------|---------|
+| firstBlockIndex | Yes       | Starting height             | uint32 | 123123  |
+| blockCount      | Yes       | Number of blocks to process | uint32 | 20      |
 
 Output:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Description
-! Format
-! Example
-|-
-| align="center" | blockHashes
-| Array of strings, where each element is a block hash
-| align="center" | array
-| align="center" | example
-|}
+| Argument    | Description                                          | Format | Example |
+|-------------|------------------------------------------------------|--------|---------|
+| blockHashes | Array of strings, where each element is a block hash | array  | example |
 
 
 Input example:
@@ -515,75 +387,34 @@ Output example:
 ```
 
 
-==Get transaction hashes==
+## Get transaction hashes
 
-'''*getTransactionHashes()'''* method returns an array of block and transaction hashes.
+***getTransactionHashes()*** method returns an array of block and transaction hashes.
 
 Transaction consists of transfers. Transfer is an amount-address pair. There could be several transfers in a single transaction.
 
 
 Input:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Mandatory
-! Description
-! Format
-! Example
-|-
-| align="center" | addresses
-| align="center" | No
-| Array of strings, where each string is an address
-| align="center" | array
-| align="center" | KfXkT5VmdqmA7bWqSH37p87hSXBdTpTogN4mGHPARUSJaLse6jbXaVbVkLs3DwcmuD88xfu835Zvh6qBPCUXw6CHK8koDCt
-|-
-| align="center" | blockHash
-| align="center" | '''Only one of these parameters (blockHash or firstBlockIndex) is allowed.'''
-| Hash of the starting block
-| align="center" | string
-| align="center" | f8f07ace392474bfbdc0fc30749a45f779a8aea10c489a103270f63ed88178ad
-|-
-| align="center" | firstBlockIndex
-| align="center" | '''Only one of these parameters (blockHash or firstBlockIndex) is allowed.'''
-| Starting height
-| align="center" | uint32
-| align="center" | 123123
-|-
-| align="center" | blockCount
-| align="center" | Yes
-| Number of blocks to return transaction hashes from
-| align="center" | uint32
-| align="center" | 20
-|-
-| align="center" | paymentId
-| align="center" | No
-| Valid payment_id
-| align="center" | string
-| align="center" | somePaymentId
-|}
+| Argument        | Mandatory                                                                   | Description                                        | Format | Example                                                                                         |
+|-----------------|-----------------------------------------------------------------------------|----------------------------------------------------|--------|-------------------------------------------------------------------------------------------------|
+| addresses       | No                                                                          | Array of strings, where each string is an address  | array  | KfXkT5VmdqmA7bWqSH37p87hSXBdTpTogN4mGHPARUSJaLse6jbXaVbVkLs3DwcmuD88xfu835Zvh6qBPCUXw6CHK8koDCt |
+| blockHash       | **Only one of these parameters (blockHash or firstBlockIndex) is allowed.** | Hash of the starting block                         | string | f8f07ace392474bfbdc0fc30749a45f779a8aea10c489a103270f63ed88178ad                                |
+| firstBlockIndex | **Only one of these parameters (blockHash or firstBlockIndex) is allowed.** | Starting height                                    | uint32 | 123123                                                                                          |
+| blockCount      | Yes                                                                         | Number of blocks to return transaction hashes from | uint32 | 20                                                                                              |
+| paymentId       | No                                                                          | Valid payment\_id                                  | string | somePaymentId                                                                                   |
 
-'''*Note:'''* if '''paymentId''' parameter is set, getTransactionHashes() method returns transaction hashes of transactions that contain specified payment_id. (in the set block range)
+***Note:*** if **paymentId** parameter is set, getTransactionHashes() method returns transaction hashes of transactions that contain specified payment_id. (in the set block range)
 
-'''Note:''' if '''addresses''' parameter is set, getTransactionHashes() method returns transaction hashes of transactions that contain transfer from at least one of specified addresses.
+**Note:** if **addresses** parameter is set, getTransactionHashes() method returns transaction hashes of transactions that contain transfer from at least one of specified addresses.
 
-'''Note:''' if both above mentioned parameters are set, getTransactionHashes() method returns transaction hashes of transactions that contain both specified payment_id and transfer from at least one of specified addresses.
+**Note:** if both above mentioned parameters are set, getTransactionHashes() method returns transaction hashes of transactions that contain both specified payment_id and transfer from at least one of specified addresses.
 
 
 Output:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Description
-! Format
-! Example
-|-
-| align="center" | items
-| Array that contains:
-* blockHash - string - hash of the block which contains transaction hashes
-* transactionHashes - array - array of strings, where each string is a transaction hash
-| align="center" | array
-| align="center" | See below
-|}
+| Argument | Description                                                                               | Format | Example   |
+|----------|-------------------------------------------------------------------------------------------|--------|-----------|
 
 
 Input example:
@@ -620,88 +451,41 @@ Output example:
 }
 ```
 
-==Get transactions==
+## Get transactions
 
-'''getTransactions()''' method returns an array of block and transaction hashes.
+**getTransactions()** method returns an array of block and transaction hashes.
 
 Transaction consists of transfers. Transfer is an amount-address pair. There could be several transfers in a single transaction.
 
 
 Input:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Mandatory
-! Description
-! Format
-! Example
-|-
-| align="center" | addresses
-| align="center" | No
-| Array of strings, where each string is an address
-| align="center" | array
-| align="center" | See below
-|-
-| align="center" | blockHash
-| align="center" | Only one of these parameters (blockHash or firstBlockIndex) is allowed.
-| Hash of the starting block
-| align="center" | string
-| align="center" | 8fa07712cbf22c263834c0ac9a3f05058856a1fa7fa3d3eda332f63519b23bd1
-|-
-| align="center" | firstBlockIndex
-| align="center" | Only one of these parameters (blockHash or firstBlockIndex) is allowed.
-| Starting height
-| align="center" | uint32
-| align="center" | 123123
-|-
-| align="center" | blockCount
-| align="center" | Yes
-| Number of blocks to return transaction hashes from
-| align="center" | uint32
-| align="center" | 20
-|-
-| align="center" | paymentId
-| align="center" | No
-| Valid payment_id
-| align="center" | string
-| align="center" | somePaymentId
-|}
+| Argument        | Mandatory                                                               | Description                                        | Format | Example                                                          |
+|-----------------|-------------------------------------------------------------------------|----------------------------------------------------|--------|------------------------------------------------------------------|
+| addresses       | No                                                                      | Array of strings, where each string is an address  | array  | See below                                                        |
+| blockHash       | Only one of these parameters (blockHash or firstBlockIndex) is allowed. | Hash of the starting block                         | string | 8fa07712cbf22c263834c0ac9a3f05058856a1fa7fa3d3eda332f63519b23bd1 |
+| firstBlockIndex | Only one of these parameters (blockHash or firstBlockIndex) is allowed. | Starting height                                    | uint32 | 123123                                                           |
+| blockCount      | Yes                                                                     | Number of blocks to return transaction hashes from | uint32 | 20                                                               |
+| paymentId       | No                                                                      | Valid payment\_id                                  | string | somePaymentId                                                    |
 
 
-'''Note:''' if '''paymentId''' parameter is set, getTransactions() method returns transactions that contain specified payment_id. (in the set block range)
+**Note:** if **paymentId** parameter is set, getTransactions() method returns transactions that contain specified payment_id. (in the set block range)
 
-'''Note:''' if '''addresses''' parameter is set, getTransactions() method returns transactions that contain transfer from at least one of specified addresses.
+**Note:** if **addresses** parameter is set, getTransactions() method returns transactions that contain transfer from at least one of specified addresses.
 
-'''Note:''' if both above mentioned parameters are set, getTransactions() method returns transactions that contain both specified payment_id and transfer from at least one of specified addresses.
+**Note:** if both above mentioned parameters are set, getTransactions() method returns transactions that contain both specified payment_id and transfer from at least one of specified addresses.
 
 
 Output:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Description
-! Format
-! Example
-|-
-| align="center" | items
-| Array that contains:
-* block_hash - string - hash of the block which contains a transaction
-* transactions - array - contains
-''' transactionHash - string - hash of the transaction
-''' blockIndex - uint32 - number of the block that contains a transaction
-''' timestamp - uint64 - timestamp of the transaction
-''' isBase - boolean - shows if the transaction is a coinbase transaction or not
-''' unlockTime - uint64 - height of the block when transaction is going to be available for spending
-''' amount - int64 - amount of the transaction
-''' fee - uint64- transaction fee
-''' extra - string
-''' paymentId - string - payment_id of the transaction (optional)
-''' transfers - array - contains
-'''* address - string
-'''* amount - int64
-| align="center" | array
-| align="center" | See below
-|}
+| Argument | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Format | Example   |
+|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|-----------|
+| items    | Array that contains:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+
+            -   block\_hash - string - hash of the block which contains a transaction                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+            -   transactions - array - contains                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+
+            ** transactionHash - string - hash of the transaction ** blockIndex - uint32 - number of the block that contains a transaction ** timestamp - uint64 - timestamp of the transaction ** isBase - boolean - shows if the transaction is a coinbase transaction or not ** unlockTime - uint64 - height of the block when transaction is going to be available for spending ** amount - int64 - amount of the transaction ** fee - uint64- transaction fee ** extra - string ** paymentId - string - payment\_id of the transaction (optional) ** transfers - array - contains **\* address - string **\* amount - int64  | array  | See below |
 
 
 Input example:
@@ -783,46 +567,28 @@ Output example:
 ```
 
 
-==Get unconfirmed transaction hashes==
+## Get unconfirmed transaction hashes
 
-'''getUnconfirmedTransactionHashes()''' method returns information about the current unconfirmed transaction pool or for a specified addresses.
+**getUnconfirmedTransactionHashes()** method returns information about the current unconfirmed transaction pool or for a specified addresses.
 
 Transaction consists of transfers. Transfer is an amount-address pair. There could be several transfers in a single transaction.
 
 
 Input:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Mandatory
-! Description
-! Format
-! Example
-|-
-| align="center" | addresses
-| align="center" | No
-| Array of strings, where each string is a valid address
-| align="center" | array
-| align="center" | See below
-|}
+| Argument  | Mandatory | Description                                            | Format | Example   |
+|-----------|-----------|--------------------------------------------------------|--------|-----------|
+| addresses | No        | Array of strings, where each string is a valid address | array  | See below |
 
 
-'''Note:''' if '''addresses''' parameter is set, getUnconfirmedTransactionHashes() method returns transactions that contain transfer from at least one of specified addresses.
+**Note:** if **addresses** parameter is set, getUnconfirmedTransactionHashes() method returns transactions that contain transfer from at least one of specified addresses.
 
 
 Output:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Description
-! Format
-! Example
-|-
-| align="center" | transactionHashes
-| Array of strings, where each string is a hash of an unconfirmed transaction
-| align="center" | array
-| align="center" | See below
-|}
+| Argument          | Description                                                                 | Format | Example   |
+|-------------------|-----------------------------------------------------------------------------|--------|-----------|
+| transactionHashes | Array of strings, where each string is a hash of an unconfirmed transaction | array  | See below |
 
 
 Input example:
@@ -856,55 +622,37 @@ Output example:
 ```
 
 
-==Get transaction==
+## Get transaction
 
-'''getTransaction()''' method returns information about a particular transaction.
+**getTransaction()** method returns information about a particular transaction.
 
 Transaction consists of transfers. Transfer is an amount-address pair. There could be several transfers in a single transaction.
 
 
 Input:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Mandatory
-! Description
-! Format
-! Example
-|-
-| align="center" | transactionHash
-| align="center" | Yes
-| Hash of the requested transaction
-| align="center" | string
-| align="center" | example
-|}
-
+| Argument        | Mandatory | Description                       | Format | Example |
+|-----------------|-----------|-----------------------------------|--------|---------|
+| transactionHash | Yes       | Hash of the requested transaction | string | example |
 
 Output:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Description
-! Format
-! Example
-|-
-| align="center" | transaction
-| Contains:
-* transactionHash - string - hash of the transaction
-* blockIndex - uint32 - number of the block that contains a transaction (optional)
-* timestamp - uint64 - timestamp of the transaction (optional)
-* isBase - boolean - shows if the transaction is a coinbase transaction or not
-* unlockTime - uint64 - height of the block when transaction is going to be available for spending
-* amount - int64 - amount of the transaction
-* fee - uint64- transaction fee
-* extra - string - ?
-* paymentId - string - payment_id of the transaction (optional)
-* transfers - array - contains
-''' address - string
-''' amount - int64
-| align="center" | array
-| align="center" | See below
-|}
+| Argument    | Description                                                                                          | Format | Example   |
+|-------------|------------------------------------------------------------------------------------------------------|--------|-----------|
+| transaction | Contains:                                                                                            
+
+               -   transactionHash - string - hash of the transaction                                                
+               -   blockIndex - uint32 - number of the block that contains a transaction (optional)                  
+               -   timestamp - uint64 - timestamp of the transaction (optional)                                      
+               -   isBase - boolean - shows if the transaction is a coinbase transaction or not                      
+               -   unlockTime - uint64 - height of the block when transaction is going to be available for spending  
+               -   amount - int64 - amount of the transaction                                                        
+               -   fee - uint64- transaction fee                                                                     
+               -   extra - string - ?                                                                                
+               -   paymentId - string - payment\_id of the transaction (optional)                                    
+               -   transfers - array - contains                                                                      
+
+               ** address - string ** amount - int64                                                               | array  | See below |
 
 
 Input example:
@@ -957,92 +705,36 @@ Output example:
  }
 ```
 
-==Send transaction==
+## Send transaction
 
-'''sendTransaction()''' method allows you to send transaction to one or several addresses. Also, it allows you to use a payment_id for a transaction to a single address.
+**sendTransaction()** method allows you to send transaction to one or several addresses. Also, it allows you to use a payment_id for a transaction to a single address.
 
 Input:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Mandatory
-! Description
-! Format
-! Example
-|-
-| align="center" | addresses
-| align="center" | No
-| Array of strings, where each string is an address to take the funds from
-| align="center" | array
-| align="center" | See below
-|-
-| align="center" | transfers
-| align="center" | Yes
-| Array that contains:
-* address - string
-* amount - int64
-| align="center" | array
-| "amount": 10000000000,
-"address": "Kcpg4B4kjwefDeBHGyRdUbgeq5FSYHCof7db8uj6dkFAjkvLSQBc3J7iDSwFx75TUj6MnDYKM5Eu3UmtaAJhvEjdKw1Jkz5"
-|-
-| align="center" | fee
-| align="center" | Yes
-| Transaction fee. Minimal fee in Qwertycoin network is 1 QWC. This parameter should be specified in minimal available QWC units. For example, if your fee is 1.1 QWC, you should pass it as 110000000
-| align="center" | uint64
-| align="center" | 1000000
-|-
-| align="center" | unlockTime
-| align="center" | No
-| Height of the block until which transaction is going to be locked for spending.
-| align="center" | uint64
-| align="center" | 0
-|-
-| align="center" | anonymity
-| align="center" | Yes
-| Privacy level (a discrete number from 1 to infinity). Level 6 and higher is recommended.
-| align="center" | uint64
-| align="center" | 6
-|-
-| align="center" | extra
-| align="center" | No
-| String of variable length. Can contain A-Z, 0-9 characters.
-| align="center" | string
-| align="center" |
-|-
-| align="center" | paymentId
-| align="center" | No
-| align="center" | payment_id
-| align="center" | string
-| align="center" | somePaymentId
-|-
-| align="center" | changeAddress
-| align="center" | No
-| align="center" | Valid and existing in this container address.
-| align="center" | string
-| align="center" | KaUMDHkTqSpaDBtK2pZc4MDaveb2DhQfYiUZ2ACy7evsKYYwWefrvhy34RHNChptMPbefT387qpH7MGkWCsdQJAeGpjmhfz
-|}
+| Argument      | Mandatory | Description                                                                                                                                                                                          | Format | Example                                                                                                                             |
+|---------------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------|
+| addresses     | No        | Array of strings, where each string is an address to take the funds from                                                                                                                             | array  | See below                                                                                                                           |
+| transfers     | Yes       | Array that contains:                                      • address  - string • amount - int64                                                                                                                                                                                    | array  | "amount": 10000000000, "address": "Kcpg4B4kjwefDeBHGyRdUbgeq5FSYHCof7db8uj6dkFAjkvLSQBc3J7iDSwFx75TUj6MnDYKM5Eu3UmtaAJhvEjdKw1Jkz5" |
+| fee           | Yes       | Transaction fee. Minimal fee in Qwertycoin network is 1 QWC. This parameter should be specified in minimal available QWC units. For example, if your fee is 1.1 QWC, you should pass it as 110000000 | uint64 | 1000000                                                                                                                             |
+| unlockTime    | No        | Height of the block until which transaction is going to be locked for spending.                                                                                                                      | uint64 | 0                                                                                                                                   |
+| anonymity     | Yes       | Privacy level (a discrete number from 1 to infinity). Level 6 and higher is recommended.                                                                                                             | uint64 | 6                                                                                                                                   |
+| extra         | No        | String of variable length. Can contain A-Z, 0-9 characters.                                                                                                                                          | string |                                                                                                                                     |
+| paymentId     | No        | payment\_id                                                                                                                                                                                          | string | somePaymentId                                                                                                                       |
+| changeAddress | No        | Valid and existing in this container address.                                                                                                                                                        | string | KaUMDHkTqSpaDBtK2pZc4MDaveb2DhQfYiUZ2ACy7evsKYYwWefrvhy34RHNChptMPbefT387qpH7MGkWCsdQJAeGpjmhfz                                     |
 
-Note: if container contains only 1 address, '''changeAddress''' field can be left empty and the change is going to be sent to this address
+Note: if container contains only 1 address, **changeAddress** field can be left empty and the change is going to be sent to this address
 
-Note: if '''addresses''' field contains only 1 address, '''changeAddress''' can be left empty and the change is going to be sent to this address
+Note: if **addresses** field contains only 1 address, **changeAddress** can be left empty and the change is going to be sent to this address
 
-Note: in the rest of the cases, '''changeAddress''' field is mandatory and must contain an address.
+Note: in the rest of the cases, **changeAddress** field is mandatory and must contain an address.
 
 
 
 Output:
 
-{| cellspacing="0" cellpadding="5" border="1"
-! Argument
-! Description
-! Format
-! Example
-|-
-| transactionHash
-| Hash of the sent transaction.
-| string
-| 93faedc8b8a80a084a02dfeffd163934746c2163f23a1b6022b32423ec9ae08f
-|}
+| Argument        | Description                   | Format | Example                                                          |
+|-----------------|-------------------------------|--------|------------------------------------------------------------------|
+| transactionHash | Hash of the sent transaction. | string | 93faedc8b8a80a084a02dfeffd163934746c2163f23a1b6022b32423ec9ae08f |
 
 
 Input Example:

@@ -2,18 +2,47 @@
 title: Trading
 ---
 
-Qwertycoin is currently available for trading on 4 exchanges with several different trading pairs. Those options are:
+Qwertycoin is currently available for trading on 10 exchanges with several different trading pairs. Those options are:
 
-#### [Crex24](https://crex24.com/exchange/QWC-BTC)
+#### [Altilly](https://www.altilly.com/)
 * QWC - BTC
+* QWC - LTC
+* QWC - DOGE
+* QWC - XQR
 
 #### [Bitexlive](https://bitexlive.com/)
 * QWC - BTC
-* QWC - LTC
 * QWC - DOGE
 
 #### [Bituan](https://exchange.bituan.cc/trade/professional/QWC-USDT)
 * QWC - USDT
+
+#### [Bisq](https://www.qwertycoin.org/#)
+* Requires activation cost
+
+#### [BKEX](https://www.bkex.com/)
+* QWC - BTC
+* QWC - USDT
+
+#### [CITEX](https://www.citex.co.kr/)
+* QWC - BTC
+* QWC - ETH
+* QWC - USDT
+
+#### [Crex24](https://crex24.com/exchange/QWC-BTC)
+* QWC - BTC
+
+#### [GJ](https://www.gj.com/)
+* QWC - USDT
+
+#### [QBTC](https://www.qbtc.com/)
+* QWC - CNYT
+
+#### [TychExchange](https://tyche.exchange/)
+* QWC - ETH
+* QWC - DOGE
+* QWC - USDT
+* QWC - TEX
 
 **BiteBTC is no longer suggested due to their shady business practices!** Please use one of the options listed above.
 

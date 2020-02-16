@@ -65,7 +65,7 @@ class HomeSplash extends React.Component {
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
             <Button href="https://qwertycoin.org">Official Website</Button>
-            <Button href="https://github.com/qwertycoin-org">GitHub Org</Button>
+            <Button href="https://github.com/qwertycoin-org">GitHub</Button>
             <Button href="https://discordapp.com/invite/kMykjNQ">Discord Chat</Button>
           </PromoSection>
         </div>
@@ -158,7 +158,7 @@ class Index extends React.Component {
         {[
           {
             content:
-              `<MarkdownBlock> Come join us on [Discord](https://discordapp.com/invite/kMykjNQ) or [Reddit](https://www.reddit.com/r/QWERTYCOIN/))</MarkdownBlock>`,
+              `<MarkdownBlock> Come join us on [Discord](https://discordapp.com/invite/kMykjNQ) or [Reddit](https://www.reddit.com/r/QWERTYCOIN/)</MarkdownBlock>`,
             image: `${baseUrl}img/undraw_questions.svg`,
             imageAlign: 'right',
             title: `Have Questions or Need Help?`,

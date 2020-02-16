@@ -27,19 +27,19 @@ const siteConfig = {
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     {doc: 'Getting-Started', label: 'Getting Started'},
-    {doc: 'about/About-Qwertycoin', label: 'About'},
-    {doc: 'Frequently-Asked-Questions', label: 'FAQ'},
-    {doc: 'guides/mining/Mining', label: 'Guides'},
+//    {doc: 'about/About-Qwertycoin', label: 'About'},
+//    {doc: 'Frequently-Asked-Questions', label: 'FAQ'},
+    {doc: 'guides/config/Config', label: 'Guides'},
     {doc: 'developer/Compiling-From-Source', label: 'For Developers'},
     { search: true }
   ],
-/*
+// Search
   algolia: {
-    apiKey: '',
+    apiKey: 'b2b606a17a4f4a6ad7649bc23ca412d6',
     indexName: 'qwertycoin',
     //algoliaOptions: {} // Optional, if provided by Algolia
   },
-*/
+
   /* path to images for header/footer */
   headerIcon: 'img/logo.png',
   footerIcon: 'img/fav.png',

@@ -17,4 +17,4 @@ Qwertycoin RPC Wallet is a HTTP server which provides JSON 2.0 RPC interface for
 
 ## How to use the RPC Wallet
 
-* [RPC Wallet User Guide](developer/api/Using-RPC-Wallet.md)
+* [RPC Wallet User Guide](guides/wallets/Using-RPC-Wallet.md)
