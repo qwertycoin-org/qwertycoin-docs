@@ -24,4 +24,4 @@ One of Qwertycoin's main goals is to make things as simple and as accessible as 
 
 ## Have Questions or Need Help?
 
-Check out our [Telegram Community Channel](https://t.me/qwertycoin), [Telegram Support Channel](https://t.me/qwc_support), [Discord](https://qwertycoin.org/discord) or [Reddit](https://www.reddit.com/r/QWERTYCOIN/) to get in touch.
+Check out our [Telegram Community Channel](https://t.me/qwertycoin), [Telegram Support Channel](https://t.me/qwc_support), [Discord](https://qwertycoin.org/discord) or [Reddit](https://www.reddit.com/r/QWERTYCOIN/) to get in touch with us.
