@@ -1,0 +1,195 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Using RPC Wallet · Qwertycoin Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Overview"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Using RPC Wallet · Qwertycoin Docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://docs.qwertycoin.org/"/><meta property="og:description" content="## Overview"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/fav.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Qwertycoin Docs"/><h2 class="headerTitleWithLogo">Qwertycoin Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/Getting-Started" target="_self">Getting Started</a></li><li class="siteNavGroupActive"><a href="/guides/config/Config" target="_self">Guides</a></li><li class=""><a href="/developer/Compiling-From-Source" target="_self">For Developers</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Wallets</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Config<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/config/Config">Config</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Daemon<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/daemon/Fix-Sync-Issues">Fix Sync Issues</a></li><li class="navListItem"><a class="navItem" href="/guides/daemon/Load-Checkpoints">Load Checkpoints</a></li><li class="navListItem"><a class="navItem" href="/guides/daemon/Start-Masternode">Start Masternode</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Mining<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/mining/Mining">Mining</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Cloud-Mining">Cloud Mining</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Creating-a-Mining-Pool">Creating a Mining Pool</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Mining-With-SBC">Mining With SBC</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Mobile-Mining">Mobile Mining</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/Using-a-Mining-Pool">Using a Mining Pool</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/XMR-Stak">XMR-Stak</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/XMR-Stak-Linux">XMR-Stak Linux</a></li><li class="navListItem"><a class="navItem" href="/guides/mining/XMRIG">XMRIG</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Trading<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/trading/Trading">Trading</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-BISQ">How to Trade on BISQ</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-Bitexlive">How to Trade on Bitexlive</a></li><li class="navListItem"><a class="navItem" href="/guides/trading/How-to-Trade-on-CREX24">How to Trade on CREX24</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Wallets<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet">Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Generating-a-Wallet">Generating a Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Paper-Wallet">Paper Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Sign-and-Verify-Messages">Sign and Verify Messages</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-CLI-Wallet">Using CLI Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-GUI-Wallet">Using GUI Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Mobile-Wallet">Using Mobile Wallet</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/guides/wallets/Using-RPC-Wallet">Using RPC Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Web-Wallet">Using Web Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Using-Zero-Wallet">Using Zero Wallet</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Backup">Wallet Backup</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Recovery">Wallet Recovery</a></li><li class="navListItem"><a class="navItem" href="/guides/wallets/Wallet-Update">Wallet Update</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/qwertycoin-org/qwertycoin-docs/edit/master/docs/guides/wallets/Using-RPC-Wallet.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Using RPC Wallet</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h2>
+<p>Qwertycoin RPC Wallet is a HTTP server which provides JSON 2.0 RPC interface for Qwertycoin payment operations and address management. Qwertycoin RPC Wallet allows you to accept incoming payments, generate an address for each user via Qwertycoin RPC Wallet JSON RPC API and much more. [Wallet-RPC-API.md RPC Wallet API] page contains detailed description of every method.</p>
+<h2><a class="anchor" aria-hidden="true" id="download-qwertycoin-rpc-wallet"></a><a href="#download-qwertycoin-rpc-wallet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Download Qwertycoin RPC Wallet</h2>
+<p>Before you begin the integration process you will need to first download the Qwertycoin RPC Wallet. You can find the download <a href="https://qwertycoin.org/wallet/">here</a>/</p>
+<p>Or if you would rather build it from source code, you can do that <a href="https://github.com/qwertycoin-org/qwertycoin">here</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="generate-a-new-wallet"></a><a href="#generate-a-new-wallet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Generate a new wallet</h2>
+<p>Once you have compiled or built the RPC wallet you are going to want to generate a container. The container file is the only file that stores all the data required to run your service. It contains the user addresses and private keys required to operate them. <strong>Make sure to backup this file regularly</strong>.</p>
+<p>To generate a new container you should run the following command in your terminal:</p>
+<pre><code class="hljs">./walletd --container-file=&lt;mycontainer&gt; --container-password=&lt;mypassword&gt; --generate-container
+</code></pre>
+<p>where:</p>
+<ul>
+<li><strong><mycontainer></strong> is the container file name and a path to it (relative or absolute); path is optional in this argument, specifying only a container's name will result in new file located in the same folder as RPC Wallet</li>
+<li><strong><mypass></strong> is a secret password for the new wallet file. Whichever you like;</li>
+<li><strong>--generate-container</strong> option tells RPC wallet to generate container file and exit.</li>
+</ul>
+<p><strong>Note:</strong> if <strong><mycontainer></strong> exists Qwertycoin RPC Wallet will show you the notification and will ask you to provide a different name.</p>
+<p>If the container generation was successful you will get a corresponding message with your new Qwertycoin address. At the same time, Qwertycoin RPC Wallet will save your container on the local disk (in the same folder where Qwertycoin RPC Wallet is located) and shut down.</p>
+<h2><a class="anchor" aria-hidden="true" id="starting-qwertycoin-rpc-wallet"></a><a href="#starting-qwertycoin-rpc-wallet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Starting Qwertycoin RPC Wallet</h2>
+<p>There are two ways to start Qwertycoin RPC wallet:</p>
+<h3><a class="anchor" aria-hidden="true" id="1-start-with-a-remote-connection-to-the-daemon"></a><a href="#1-start-with-a-remote-connection-to-the-daemon" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Start with a remote connection to the Daemon</h3>
+<p>Starting with a remote connection allows you to bind your Qwertycoin RPC Wallet to a remote Qwertycoin daemon (Qwertycoind). This type of connection allows you to start Qwertycoin RPC Wallet on a relatively slow machine while a heavy loaded daemon runs on a separate more powerful server.</p>
+<ul>
+<li>For local daemons use localhost or 127.0.0.1 as an IP address.</li>
+<li>For remote daemons specify the remote daemon's IP address.</li>
+<li>The default Qwertycoin daemon ports are 8196 and 8197.</li>
+</ul>
+<p>You can use the following command to start Qwertycoin RPC Wallet with a remote connection:</p>
+<pre><code class="hljs">./walletd --container-file=mycontainer --container-password=mypassword --daemon-address=remote_ip --daemon-port=8197
+</code></pre>
+<p><strong>Note:</strong> The Qwertycoin daemon (Qwertycoind) should be running before you start the RPC wallet.</p>
+<p><strong>Note:</strong> Qwertycoin RPC Wallet will still provide some functionality even if Daemon server fails. For example, you will be able to generate addresses for your users.</p>
+<h3><a class="anchor" aria-hidden="true" id="2-start-as-in-process-node"></a><a href="#2-start-as-in-process-node" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Start as in-process node</h3>
+<p>If you don't want to start the RPC Wallet with a remote daemon, you can start it with an in-process node instead. This allows you to start the RPC Wallet out-of-box with no external daemon required. You will still get a fully functional node for Qwertycoin network inside Qwertycoin RPC Wallet. You don't have to download or install anything besides Qwertycoin RPC Wallet to use this feature. This approach can help reduce the overhead cost required for infrastructure maintenance.</p>
+<p>You can use the following command to start Qwertycoin RPC Wallet with an in-process node:</p>
+<pre><code class="hljs">./walletd --container-file=mycontainer --container-password=mypassword --local
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="how-to-configure-qwertycoin-rpc-wallet"></a><a href="#how-to-configure-qwertycoin-rpc-wallet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to configure Qwertycoin RPC Wallet</h2>
+<p>You can use both the command line and a config file to configure your RPC Wallet. A config file allows you to configure your settings only once and use &quot;--config&quot; option further. The command below launches Qwertycoin RPC Wallet with a specific config file:</p>
+<h3><a class="anchor" aria-hidden="true" id="1-starting-with-a-config-file"></a><a href="#1-starting-with-a-config-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Starting with a Config File</h3>
+<p>The command below launches Qwertycoin RPC Wallet with a specific config file:</p>
+<pre><code class="hljs">./walletd --config=/home/Downloads/myconfig.conf
+</code></pre>
+<p>To get help on available options run:</p>
+<pre><code class="hljs">./walletd -h
+</code></pre>
+<p>Please note, Qwertycoin RPC Wallet config file may consist only of these options:</p>
+<table>
+<thead>
+<tr><th>Option</th><th>Description</th><th>Config Example</th><th>Console Example</th></tr>
+</thead>
+<tbody>
+<tr><td>bind-address</td><td>Which address to bind Qwertycoin RPC Wallet to. Default value is 0.0.0.0</td><td>bind-address = 127.0.0.1</td><td>--bind-address=127.0.0.1</td></tr>
+<tr><td>bind-port</td><td>Which port to bind Qwertycoin RPC Wallet to. Default value is 8070</td><td>bind-port = 8071</td><td>--bind-port=8071</td></tr>
+<tr><td>daemon-address</td><td>Qwertycoin daemon (Qwertycoind) address for remote daemon connection infrastructure</td><td>daemon-address = 127.0.0.1</td><td>--daemon-address=127.0.0.1</td></tr>
+<tr><td>daemon-port</td><td>Qwertycoin daemon (Qwertycoind) port for remote daemon connection infrastructure. Default Qwertycoin daemon ports are 8196 and 8197</td><td>daemon-port = 8197</td><td>--daemon-port=8197</td></tr>
+<tr><td>container-file</td><td>-   -   Mandatory**. Your container's file name</td><td>container-file = mycontainer</td><td>--container-file=mycontainer</td></tr>
+<tr><td>container-password</td><td>-   -   Mandatory**. Your container's password</td><td>container-password = mypassword</td><td>--container-password=mypassword</td></tr>
+<tr><td>log-file</td><td>A name of log file that you want to use for logging. Default is walletd.log</td><td>log-file = mylog.log</td><td>--log-file=mylog.log</td></tr>
+<tr><td>server-root</td><td>Working directory that you wish to use for Qwertycoin RPC Wallet. Default is current working directory.</td><td>server-root = /home/Downloads/RPCWallet</td><td>--server-root=/home/Downloads/RPCWallet</td></tr>
+<tr><td>log-level</td><td>Level of logging. Default is 1.</td><td>log-level = 2</td><td>--log-level=2</td></tr>
+<tr><td>testnet</td><td>Allows you to run Qwertycoin RPC Wallet in testnet.</td><td>testnet = no</td><td>--testnet=no</td></tr>
+<tr><td>local</td><td>Option that allows you to start Qwertycoin RPC Wallet as an in-process node</td><td>local</td><td>--local</td></tr>
+</tbody>
+</table>
+<p>Here's an example of a config file:</p>
+<pre><code class="hljs">  $ cat rpc_wallet.conf
+  container-file = mycontainer
+  container-password = mypassword
+  daemon-port = 8197
+  bind-port = 8050
+  testnet = no
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="2-starting-with-console-arguments"></a><a href="#2-starting-with-console-arguments" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Starting with console arguments</h3>
+<p>You may specify Qwertycoin config directly through console arguments. Here's the same example as above in console:</p>
+<pre><code class="hljs">./walletd --container-file=mycontainer --container-password=mypassword --daemon-port=8197 --bind-port=8050 --testnet=no
+</code></pre>
+<p><strong>Note:</strong> config file's path is relative to current working directory, not server root.</p>
+<p><strong>Note:</strong> options &quot;container-file&quot; and &quot;container-password&quot; should ALWAYS be set (in either command line or config file mode).</p>
+<p><strong>Note:</strong>' &quot;container-file&quot; and &quot;log-file&quot; options are relative to &quot;server-root&quot;. &quot;server-root&quot; default is the current working directory.</p>
+<h2><a class="anchor" aria-hidden="true" id="how-to-run-the-qwertycoin-rpc-wallet"></a><a href="#how-to-run-the-qwertycoin-rpc-wallet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to run the Qwertycoin RPC Wallet</h2>
+<p>The Qwertycoin RPC wallet can be started in both daemon and console modes.</p>
+<ul>
+<li><p><strong>Daemon mode</strong> - Qwertycoin RPC Wallet is launched in the background, while you can continue to work with a console window.</p></li>
+<li><p><strong>Console mode</strong> - Qwertycoin RPC Wallet is launched and prints log messages on the screen.</p></li>
+</ul>
+<p><strong>The Qwertycoin RPC wallet starts in console mode by default.</strong></p>
+<h3><a class="anchor" aria-hidden="true" id="start-as-daemon-unix-only"></a><a href="#start-as-daemon-unix-only" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Start as daemon (UNIX only)</h3>
+<p>To start RPC wallet as daemon just set &quot;--daemon&quot; (or short &quot;-d&quot;) option.</p>
+<pre><code class="hljs">./walletd --container-file=mycontainer --container-password=mypassword --daemon
+</code></pre>
+<p><strong>Note:</strong> it's a common practice for daemons to set in the server's root directory.</p>
+<p>Server root is the directory where RPC Wallet stores all its files. All relative paths in RPC Wallet configuration are relative to the server root directory.</p>
+<h3><a class="anchor" aria-hidden="true" id="start-as-service-windows-only"></a><a href="#start-as-service-windows-only" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Start as service (Windows only)</h3>
+<p>To run RPC wallet as a service on Windows you have to do the following:</p>
+<ol>
+<li>Create a config file and place it in the same directory where your RPC wallet's executable resides in.</li>
+</ol>
+<p>A note for Windows Users: In case the server root in config file is not specified all paths should be ABSOLUTE. If you set server root you can use relative paths (relative to your server root);</p>
+<ol start="2">
+<li>Register your Qwertycoin RPC Wallet as a service. To do so, run the following command as an ADMINISTRATOR:</li>
+</ol>
+<pre><code class="hljs">walletd.exe --register-service
+</code></pre>
+<ol start="3">
+<li>After you see message about successful service registration you can run it in your Services panel.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="uninstall-service-windows-only"></a><a href="#uninstall-service-windows-only" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Uninstall service (Windows only)</h3>
+<p>If you want to delete RPC Wallet you have to unregister the Windows service first (if you have registered it before). Run as an ADMINISTRATOR:</p>
+<pre><code class="hljs">walletd.exe --unregister-service
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="qwertycoin-rpc-wallet-json-rpc-api"></a><a href="#qwertycoin-rpc-wallet-json-rpc-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Qwertycoin RPC Wallet JSON RPC API</h2>
+<p>The Qwertycoin RPC Wallet API allows you to create addresses for your users, accept and send transactions and much more.</p>
+<p>A detailed description for every Qwertycoin RPC Wallet API method can be found <a href="developer/api/Wallet-RPC-API">here</a>.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/guides/wallets/Using-Mobile-Wallet"><span class="arrow-prev">← </span><span>Using Mobile Wallet</span></a><a class="docs-next button" href="/guides/wallets/Using-Web-Wallet"><span>Using Web Wallet</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a></li><li><a href="#download-qwertycoin-rpc-wallet">Download Qwertycoin RPC Wallet</a></li><li><a href="#generate-a-new-wallet">Generate a new wallet</a></li><li><a href="#starting-qwertycoin-rpc-wallet">Starting Qwertycoin RPC Wallet</a><ul class="toc-headings"><li><a href="#1-start-with-a-remote-connection-to-the-daemon">1. Start with a remote connection to the Daemon</a></li><li><a href="#2-start-as-in-process-node">2. Start as in-process node</a></li></ul></li><li><a href="#how-to-configure-qwertycoin-rpc-wallet">How to configure Qwertycoin RPC Wallet</a><ul class="toc-headings"><li><a href="#1-starting-with-a-config-file">1. Starting with a Config File</a></li><li><a href="#2-starting-with-console-arguments">2. Starting with console arguments</a></li></ul></li><li><a href="#how-to-run-the-qwertycoin-rpc-wallet">How to run the Qwertycoin RPC Wallet</a><ul class="toc-headings"><li><a href="#start-as-daemon-unix-only">Start as daemon (UNIX only)</a></li><li><a href="#start-as-service-windows-only">Start as service (Windows only)</a></li><li><a href="#uninstall-service-windows-only">Uninstall service (Windows only)</a></li></ul></li><li><a href="#qwertycoin-rpc-wallet-json-rpc-api">Qwertycoin RPC Wallet JSON RPC API</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/fav.png" alt="Qwertycoin Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Getting-Started">Getting Started</a><a href="/guides/config/Config.html">Guides</a><a href="/developer/Compiling-From-Source.html">Developer Resources</a></div><div><h5>Community</h5><a href="https://discordapp.com/invite/kMykjNQ">Discord Chat</a><a href="https://www.reddit.com/r/QWERTYCOIN/">Reddit</a><a href="https://twitter.com/Qwertycoin_QWC" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://qwertycoin.org/blog">Blog</a><a href="https://github.com/qwertycoin-org">GitHub</a><a class="github-button" href="https://github.com/qwertycoin-org/qwertycoin-docs" data-icon="octicon-star" data-count-href="https://github.com/qwertycoin-org/qwertycoin-docs/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><div><section class="copyright">Copyright © 2020 Qwertycoin</section><section class="copyright">Docs released under the <a href="https://opensource.org/licenses/MIT">MIT License</a></section><section class="copyright">Qwertycoin released under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public V3 License</a></section></div></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'b2b606a17a4f4a6ad7649bc23ca412d6',
+                indexName: 'qwertycoin',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

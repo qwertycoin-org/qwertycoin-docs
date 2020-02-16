@@ -1,1 +1,0 @@
-# Qwertycoin Docs
